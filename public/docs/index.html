@@ -53,15 +53,20 @@
             position: relative;
             display: inline-block;
             padding-bottom: 5px;
+            background: linear-gradient(90deg, #007bff, #00c6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease-in-out;
         }
         .title::after {
             content: "";
             display: block;
             width: 50%;
-            height: 3px;
-            background-color: #007bff;
+            height: 4px;
+            background: #007bff;
             margin: 5px auto 0;
             border-radius: 5px;
+            animation: slideIn 1s ease-in-out;
         }
         .description {
             font-size: 16px;
@@ -76,6 +81,10 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { width: 0; }
+            to { width: 50%; }
         }
     </style>
 </head>
