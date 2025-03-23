@@ -10,8 +10,8 @@
     <meta property="og:url" content="https://acioooomd.biz.id">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   <link rel="stylesheet" href="../styles.css">
-    <script defer src="../script.js"></script>
+    <link rel="stylesheet" href="/styles.css"> <!-- Pastikan path benar -->
+    <script defer src="/script.js"></script> <!-- Pastikan path benar -->
     <link rel="icon" href="https://files.catbox.moe/brfmrw.jpg" type="image/jpeg">
     <style>
         body {
@@ -64,9 +64,59 @@
             font-size: 14px;
             color: #777;
         }
+
+        /* Sidebar */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.2s;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+        .menu-btn {
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Tombol Menu -->
+    <span class="menu-btn" onclick="openSidebar()">☰ Menu</span>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
+        <a href="https://wa.me/6281234567890" target="_blank">📞 Contact</a>
+        <a href="https://saweria.co/dcvxrest" target="_blank">💰 Donate</a>
+    </div>
+
     <div class="container">
         <img src="https://files.catbox.moe/brfmrw.jpg" alt="Logo Dcvx" class="profile-img">
         <h1 class="title">WELCOME IN DCVX!</h1>
@@ -77,5 +127,26 @@
         <div id="api-categories"></div>
         <footer>© 2025 API Dcvx – Fast & Reliable API Services.</footer>
     </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+        // Tutup sidebar jika klik di luar
+        document.addEventListener("click", function(event) {
+            var sidebar = document.getElementById("mySidebar");
+            var menuBtn = document.querySelector(".menu-btn");
+
+            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                sidebar.style.width = "0";
+            }
+        });
+    </script>
+
 </body>
 </html>
