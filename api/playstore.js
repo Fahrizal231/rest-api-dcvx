@@ -14,17 +14,25 @@ router.get('/', async (req, res) => {
       return res.status(404).json({ status: 404, message: 'Aplikasi tidak ditemukan.' });
     }
 
-    const randomApp = data[Math.floor(Math.random() * data.length)];
+    // Filter data yang mengandung query dalam nama aplikasi
+    const filteredApps = data.filter(app => app.nama.toLowerCase().includes(query.toLowerCase()));
+
+    if (filteredApps.length === 0) {
+      return res.status(404).json({ status: 404, message: 'Aplikasi tidak ditemukan.' });
+    }
+
+    // Ambil hasil pertama dari daftar yang sudah difilter
+    const bestMatch = filteredApps[0];
 
     res.json({
       status: 200,
-      creator:"Fahrizal",
-      name: randomApp.nama,
-      developer: randomApp.developer,
-      rating: randomApp.rate2,
-      icon: randomApp.img,
-      link: randomApp.link,
-      developer_link: randomApp.link_dev
+      creator: "Fahrizal",
+      name: bestMatch.nama,
+      developer: bestMatch.developer,
+      rating: bestMatch.rate2,
+      icon: bestMatch.img,
+      link: bestMatch.link,
+      developer_link: bestMatch.link_dev
     });
   } catch (err) {
     res.status(500).json({ status: 500, message: 'Terjadi kesalahan saat mengambil data.' });
