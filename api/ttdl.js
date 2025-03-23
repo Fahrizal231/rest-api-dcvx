@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     if (!url) {
         return res.status(400).json({
             status: 400,
-            creator: 'OwnBlox',
+            creator: 'Fahrizal',
             error: 'Masukkan URL TikTok!'
         });
     }
@@ -32,14 +32,14 @@ router.get('/', async (req, res) => {
         if (!data || !data.medias || data.medias.length === 0) {
             return res.status(500).json({
                 status: 500,
-                creator: "OwnBlox",
+                creator: "Fahrizal",
                 error: "Gagal mendapatkan link video."
             });
         }
 
         res.json({
             status: 200,
-            creator: "OwnBlox",
+            creator: "Fahrizal",
             source: url,
             download_links: data.medias.map(media => ({
                 quality: media.quality || "Unknown",
@@ -51,7 +51,7 @@ router.get('/', async (req, res) => {
         console.error("Error:", err.message, err.response?.data);
         res.status(500).json({
             status: 500,
-            creator: 'OwnBlox',
+            creator: 'Fahrizal',
             error: 'Terjadi kesalahan, coba lagi nanti!'
         });
     }
