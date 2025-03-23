@@ -9,6 +9,7 @@ module.exports = async (req, res) => {
         if (response.data.status && response.data.data) {
             res.json({
                 success: true,
+               creator: "Fahrizal", // Tambahkan author API
                 quote: response.data.data.quote,
                 author: response.data.data.author,
                 tags: response.data.data.tags
