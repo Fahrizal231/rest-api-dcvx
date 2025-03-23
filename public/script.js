@@ -64,14 +64,7 @@ const apiData = {
             status: "online",
             description: "API untuk mencari video dari YouTube berdasarkan kata kunci atau query.",
             endpoint: "/api/ytsearch?q="
-        },
-        {
-            method: "GET",
-            title: "Cuaca",
-            status: "online",
-            description: "API untuk mencari prakiraan cuaca suatu wilayah berdasarkan nama.",
-            endpoint: "/api/cuaca?query="
-        }  
+        }
     ],
     "AI": [
         {
