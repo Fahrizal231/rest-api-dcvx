@@ -144,7 +144,7 @@ function createApiItem(api) {
     apiEndpoint.textContent = `Endpoint: ${api.endpoint}`;
 
     const apiButton = document.createElement('button');
-    apiButton.textContent = 'Akses Endpoint';
+    apiButton.textContent = 'GET';
     apiButton.onclick = () => window.location.href = api.endpoint;
 
     apiDescription.appendChild(apiDescriptionText);
