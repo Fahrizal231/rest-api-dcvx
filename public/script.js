@@ -64,6 +64,13 @@ const apiData = {
             status: "online",
             description: "API untuk mencari video dari YouTube berdasarkan kata kunci atau query.",
             endpoint: "/api/ytsearch?q="
+        },
+        {
+            method: "GET",
+            title: "Playstore Search",
+            status: "online",
+            description: "API untuk mencari aplikasi di Playstore berdasarkan kata kunci.",
+            endpoint: "/api/playstore?q="
         }
     ],
     "AI": [
