@@ -92,14 +92,21 @@ const apiData = {
         }
     ],
     "Fun": [
-        {
-            method: "GET",
-            title: "Tahu Kah Kamu?",
-            status: "online",
-            description: "Permainan seru yang menunjukkan fakta2 random yang mungkin belom kamu ketahui.",
-            endpoint: "/api/tahukahkamu"
-        }
-    ]
+    {
+        method: "GET",
+        title: "Tahu Kah Kamu?",
+        status: "online",
+        description: "Permainan seru yang menunjukkan fakta2 random yang mungkin belom kamu ketahui.",
+        endpoint: "/api/tahukahkamu"
+    },
+    {
+        method: "GET",
+        title: "Brat Generator",
+        status: "online",
+        description: "API untuk membuat gambar brat generator dari teks yang diberikan.",
+        endpoint: "/api/brat?text="
+    }
+   ]
 };
 
 function createApiItem(api) {
