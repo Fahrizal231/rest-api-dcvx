@@ -2,22 +2,25 @@ const axios = require("axios");
 
 module.exports = async (req, res) => {
     try {
+        // Ambil data dari API eksternal
         const response = await axios.get("https://www.velyn.biz.id/api/tools/quotes");
-        const data = response.data;
-        
-        if (data && data.result) {
-            res.status(200).json({ 
-                success: true, 
-                quote: data.result 
+
+        // Cek apakah response sukses dan format sesuai
+        if (response.data.status && response.data.data) {
+            res.json({
+                success: true,
+                quote: response.data.data.quote,
+                author: response.data.data.author,
+                tags: response.data.data.tags
             });
         } else {
-            res.status(500).json({ success: false, message: "Invalid response format" });
+            throw new Error("Invalid response format");
         }
     } catch (error) {
-        res.status(500).json({ 
-            success: false, 
-            message: "Failed to fetch quote", 
-            error: error.message 
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch quote"
         });
     }
 };
