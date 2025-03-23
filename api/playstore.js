@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
 
     res.json({
       status: 200,
+      creator:"Fahrizal",
       name: randomApp.nama,
       developer: randomApp.developer,
       rating: randomApp.rate2,
