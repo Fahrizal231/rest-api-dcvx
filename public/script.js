@@ -112,15 +112,14 @@ const apiData = {
             status: "online",
             description: "Fitur untuk membuat gambar brat generator dari teks yang diberikan.",
             endpoint: "/api/brat?text="
+        },
+        {
+            method: "GET",
+            title: "Cek Khodam",
+            status: "online",
+            description: "API untuk mengecek khodam berdasarkan nama yang diberikan.",
+            endpoint: "/api/khodam?nama="
         }
-      {
-    method: "GET",
-    title: "Cek Khodam",
-    status: "online",
-    description: "API untuk mengecek khodam berdasarkan nama yang diberikan.",
-    endpoint: "/api/cekkhodam?nama="
-      }
-
     ],
     "Quotes": [
         {
