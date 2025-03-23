@@ -28,10 +28,11 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .container:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
         }
         .profile-img {
             width: 100px;
@@ -56,7 +57,7 @@
             background: linear-gradient(90deg, #007bff, #00c6ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeIn 1s ease-in-out;
+            animation: glow 1.5s infinite alternate ease-in-out;
         }
         .title::after {
             content: "";
@@ -77,6 +78,7 @@
             margin-top: 20px;
             font-size: 14px;
             color: #777;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
@@ -85,6 +87,10 @@
         @keyframes slideIn {
             from { width: 0; }
             to { width: 50%; }
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(0, 123, 255, 0.5); }
+            to { text-shadow: 0 0 20px rgba(0, 123, 255, 0.8); }
         }
     </style>
 </head>
