@@ -29,31 +29,12 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
         .title {
             font-size: 28px;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #333;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-        .title::after {
-            content: "";
-            display: block;
-            width: 50%;
-            height: 3px;
-            background-color: #007bff;
-            margin: 5px auto 0;
-            border-radius: 5px;
         }
         .description {
             font-size: 16px;
@@ -73,10 +54,9 @@
             position: fixed;
             top: 0;
             left: 0;
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+            background: #333;
             overflow-x: hidden;
-            transition: 0.4s;
+            transition: 0.3s;
             padding-top: 60px;
         }
         .sidebar a {
@@ -88,7 +68,7 @@
             transition: 0.3s;
         }
         .sidebar a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: #555;
         }
         .sidebar .close-btn {
             position: absolute;
@@ -106,14 +86,10 @@
             position: fixed;
             top: 15px;
             left: 15px;
-            background: rgba(0, 0, 0, 0.8);
+            background: #333;
             color: white;
             padding: 10px 12px;
-            border-radius: 50%;
-            transition: 0.3s;
-        }
-        .menu-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -125,24 +101,21 @@
     <!-- Sidebar -->
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
-        <a href="https://wa.me/6287860644193" target="_blank">📞 Contact</a>
-        <a href="https://saweria.co/dcvxrest" target="_blank">💰 Donate</a>
+        <a href="https://wa.me/6281234567890" target="_blank">Contact</a>
+        <a href="https://saweria.co/dcvxrest" target="_blank">Donate</a>
     </div>
 
     <div class="container">
-        <img src="https://files.catbox.moe/brfmrw.jpg" alt="Logo Dcvx" class="profile-img">
         <h1 class="title">WELCOME IN DCVX!</h1>
         <p class="description">
-            Terimakasih Telah Menggunakan Rest Api Kami! Kami Akan Memberikan Rest Api Yang Cepat Dan Gratis Untuk Digunakan Semua Orang. Selalu Gunakan Dcvx Rest Api Ya!  
-            Jika Ingin Menolong / Donate Bisa Lihat Saluran Ya!
+            Terimakasih telah menggunakan REST API kami! Kami akan memberikan REST API yang cepat dan gratis untuk semua orang.
         </p>
-        <div id="api-categories"></div>
         <footer>© 2025 API Dcvx – Fast & Reliable API Services.</footer>
     </div>
 
     <script>
         function openSidebar() {
-            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("mySidebar").style.width = "200px";
         }
 
         function closeSidebar() {
