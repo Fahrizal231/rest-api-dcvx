@@ -103,10 +103,18 @@ const apiData = {
             method: "GET",
             title: "Brat Generator",
             status: "online",
-            description: "API untuk membuat gambar brat generator dari teks yang diberikan.",
+            description: "Fitur untuk membuat gambar brat generator dari teks yang diberikan.",
             endpoint: "/api/brat?text="
         }
     ]
+   "Quotes": [
+           {
+            method: "GET",
+            title: "Random Quotes",
+            status: "online",
+            description: "Random Quotes, Dari Tokoh-tokoh Terkenal Dan Lain-Lain",
+            endpoint: "/api/quotes"
+        },
 };
 
 function createApiItem(api) {
