@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     try {
         const { data } = await axios.get(`https://aqul-brat.hf.space/api/brat?text=${encodeURIComponent(text)}`);
 
-        if (!data || !data.result) {
+        if (!data || (!data.image && !data.result)) {
             return res.status(500).json({
                 status: 500,
                 creator: "AciooBot",
@@ -26,9 +26,9 @@ router.get("/", async (req, res) => {
 
         res.json({
             status: 200,
-            creator: "Fahrizal",
+            creator: "AciooBot",
             source: text,
-            brat_result: data.result
+            brat_image: data.image || data.result // Gunakan image jika ada
         });
     } catch (err) {
         console.error("Error:", err.message);
