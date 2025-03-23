@@ -26,46 +26,32 @@ const fetchData = async () => {
   }
 };
 
-// Cari wilayah berdasarkan query
-const searchWilayah = async (query) => {
+// Cari kode wilayah berdasarkan query
+const getWilayahKode = async (query) => {
   if (!dataWilayah) {
     await fetchData();
   }
 
-  const queryWords = query.toLowerCase().split(" ");
-  return dataWilayah.filter((item) => {
-    const searchString = `${item.kode} ${item.nama}`.toLowerCase();
-    return queryWords.every((word) => searchString.includes(word));
-  });
+  const results = dataWilayah.filter((item) =>
+    item.nama.toLowerCase().includes(query.toLowerCase())
+  );
+
+  return results.find((item) => item.kode.split(".").length === 4);
 };
 
-// Endpoint: /api/wilayah?query=nama_wilayah
+// Endpoint: /api/cuaca?query=nama_wilayah
 router.get("/", async (req, res) => {
   const { query } = req.query;
   if (!query) return res.status(400).json({ error: "Query tidak boleh kosong" });
 
-  const results = await searchWilayah(query);
-  if (results.length === 0)
-    return res.status(404).json({ error: "Wilayah tidak ditemukan" });
-
-  res.json({ status: "success", results });
-});
-
-// Endpoint: /api/wilayah/cuaca?query=nama_wilayah
-router.get("/cuaca", async (req, res) => {
-  const { query } = req.query;
-  if (!query) return res.status(400).json({ error: "Query tidak boleh kosong" });
-
-  const results = await searchWilayah(query);
-  const wilayah = results.find((item) => item.kode.split(".").length === 4);
-
+  const wilayah = await getWilayahKode(query);
   if (!wilayah) return res.status(404).json({ error: "Wilayah tidak ditemukan" });
 
   try {
     const { data } = await axios.get(
       `https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4=${wilayah.kode}`
     );
-    res.json({ status: "success", wilayah, cuaca: data });
+    res.json({ status: "success", wilayah: wilayah.nama, cuaca: data });
   } catch (error) {
     res.status(500).json({ error: "Gagal mengambil data cuaca dari BMKG" });
   }
