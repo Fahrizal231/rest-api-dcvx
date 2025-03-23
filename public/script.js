@@ -64,7 +64,14 @@ const apiData = {
             status: "online",
             description: "API untuk mencari video dari YouTube berdasarkan kata kunci atau query.",
             endpoint: "/api/ytsearch?q="
-        }    
+        },
+        {
+            method: "GET",
+            title: "Cuaca",
+            status: "online",
+            description: "API untuk mencari prakiraan cuaca suatu wilayah berdasarkan nama.",
+            endpoint: "/api/cuaca?query="
+        }  
     ],
     "AI": [
         {
@@ -92,21 +99,21 @@ const apiData = {
         }
     ],
     "Fun": [
-    {
-        method: "GET",
-        title: "Tahu Kah Kamu?",
-        status: "online",
-        description: "Permainan seru yang menunjukkan fakta2 random yang mungkin belom kamu ketahui.",
-        endpoint: "/api/tahukahkamu"
-    },
-    {
-        method: "GET",
-        title: "Brat Generator",
-        status: "online",
-        description: "API untuk membuat gambar brat generator dari teks yang diberikan.",
-        endpoint: "/api/brat?text="
-    }
-   ]
+        {
+            method: "GET",
+            title: "Tahu Kah Kamu?",
+            status: "online",
+            description: "Permainan seru yang menunjukkan fakta-fakta random yang mungkin belum kamu ketahui.",
+            endpoint: "/api/tahukahkamu"
+        },
+        {
+            method: "GET",
+            title: "Brat Generator",
+            status: "online",
+            description: "API untuk membuat gambar brat generator dari teks yang diberikan.",
+            endpoint: "/api/brat?text="
+        }
+    ]
 };
 
 function createApiItem(api) {
