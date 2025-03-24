@@ -88,8 +88,7 @@ const apiData = {
             description: "API untuk melihat jadwal sholat berdasarkan kota.",
             endpoint: "/api/jadwalsholat?kota="
         }
-    ]
-};
+    ],
     "AI": [
         {
             method: "GET",
@@ -187,96 +186,51 @@ const apiData = {
 };
 
 function createApiItem(api) {
-    const apiItem = document.createElement('div');
-    apiItem.className = 'api-item';
+    const apiItem = document.createElement("div");
+    apiItem.className = "api-item";
 
-    const apiHeader = document.createElement('div');
-    apiHeader.className = 'api-header';
-
-    const apiMethod = document.createElement('span');
-    apiMethod.className = 'api-method';
-    apiMethod.textContent = api.method;
-
-    const apiTitle = document.createElement('span');
-    apiTitle.className = 'api-title';
-    apiTitle.textContent = api.title;
-
-    const apiStatusBadge = document.createElement('span');
-    apiStatusBadge.className = `api-status-badge ${api.status}`;
-    apiStatusBadge.textContent = api.status.toUpperCase();
-
-    apiHeader.appendChild(apiMethod);
-    apiHeader.appendChild(apiTitle);
-    apiHeader.appendChild(apiStatusBadge);
-
-    const apiDescription = document.createElement('div');
-    apiDescription.className = 'api-description';
-    apiDescription.style.display = 'none';
-
-    const apiDescriptionText = document.createElement('p');
-    apiDescriptionText.textContent = api.description;
-
-    const apiEndpoint = document.createElement('div');
-    apiEndpoint.className = 'api-endpoint';
-    apiEndpoint.textContent = `Endpoint: ${api.endpoint}`;
-
-    const apiButton = document.createElement('button');
-    apiButton.textContent = 'GET';
-    apiButton.onclick = () => window.location.href = api.endpoint;
-
-    apiDescription.appendChild(apiDescriptionText);
-    apiDescription.appendChild(apiEndpoint);
-    apiDescription.appendChild(apiButton);
-
-    apiItem.appendChild(apiHeader);
-    apiItem.appendChild(apiDescription);
+    apiItem.innerHTML = `
+        <div class="api-header">
+            <span class="api-method">${api.method}</span>
+            <span class="api-title">${api.title}</span>
+            <span class="api-status-badge ${api.status}">${api.status.toUpperCase()}</span>
+        </div>
+        <div class="api-description" style="display: none;">
+            <p>${api.description}</p>
+            <div class="api-endpoint">Endpoint: ${api.endpoint}</div>
+            <button onclick="window.location.href='${api.endpoint}'">GET</button>
+        </div>
+    `;
 
     return apiItem;
 }
 
-function setupToggleDescriptions() {
-    const apiHeaders = document.querySelectorAll('.api-header');
-
-    apiHeaders.forEach(header => {
-        header.addEventListener('click', function () {
-            document.querySelectorAll('.api-description').forEach(desc => {
-                desc.style.display = "none";
-            });
-
-            const description = this.nextElementSibling;
-            if (description.style.display === "none" || !description.style.display) {
-                description.style.display = "block";
-            } else {
-                description.style.display = "none";
-            }
-        });
-    });
-}
-
 function loadApiData() {
-    const apiCategoriesContainer = document.getElementById('api-categories');
+    const apiCategoriesContainer = document.getElementById("api-categories");
 
     for (const category in apiData) {
-        const apiCategory = document.createElement('div');
-        apiCategory.className = 'api-category';
+        const apiCategory = document.createElement("div");
+        apiCategory.className = "api-category";
 
-        const categoryTitle = document.createElement('h2');
-        categoryTitle.textContent = category;
+        apiCategory.innerHTML = `<h2>${category}</h2>`;
 
-        const apiList = document.createElement('div');
-        apiList.className = 'api-list';
+        const apiList = document.createElement("div");
+        apiList.className = "api-list";
 
-        apiData[category].forEach(api => {
-            const apiItem = createApiItem(api);
-            apiList.appendChild(apiItem);
-        });
+        apiData[category].forEach(api => apiList.appendChild(createApiItem(api)));
 
-        apiCategory.appendChild(categoryTitle);
         apiCategory.appendChild(apiList);
         apiCategoriesContainer.appendChild(apiCategory);
     }
-
-    setupToggleDescriptions();
 }
 
-document.addEventListener('DOMContentLoaded', loadApiData);
+document.addEventListener("DOMContentLoaded", () => {
+    loadApiData();
+
+    document.addEventListener("click", (event) => {
+        if (event.target.closest(".api-header")) {
+            const description = event.target.closest(".api-item").querySelector(".api-description");
+            description.style.display = description.style.display === "none" ? "block" : "none";
+        }
+    });
+});
