@@ -212,16 +212,23 @@ function loadApiData() {
         const apiCategory = document.createElement("div");
         apiCategory.className = "api-category";
 
-        apiCategory.innerHTML = `<h2>${category}</h2>`;
+        // Menampilkan nama kategori + jumlah total endpoint
+        const categoryTitle = document.createElement("h2");
+        const totalEndpoints = apiData[category].length;
+        categoryTitle.textContent = `${category} (${totalEndpoints})`;
 
         const apiList = document.createElement("div");
         apiList.className = "api-list";
 
-        apiData[category].forEach(api => apiList.appendChild(createApiItem(api)));
+        apiData[category].forEach(api => {
+            apiList.appendChild(createApiItem(api));
+        });
 
-        apiCategory.appendChild(apiList);
+        apiCategory.append(categoryTitle, apiList);
         apiCategoriesContainer.appendChild(apiCategory);
     }
+
+    setupToggleDescriptions();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
