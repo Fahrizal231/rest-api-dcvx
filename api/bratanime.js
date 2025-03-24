@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const router = express.Router();
 
-router.get('/bratanime', async (req, res) => {
+router.get('/bratanim', async (req, res) => {
     const { text } = req.query;
 
     if (!text) {
