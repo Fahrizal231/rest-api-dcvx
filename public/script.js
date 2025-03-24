@@ -93,7 +93,7 @@ const apiData = {
             title: "Deepseek",
             status: "online",
             description: "API Untuk mengakses chat dengan deepseek ai!",
-            endpoint: "/api/txt2img?text="
+            endpoint: "/api/deepseek?text="
         }
     ],
     "Tools": [
