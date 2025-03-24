@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
     try {
         const response = await axios.get(
-            `https://api.siputzx.my.id/api/m/brat?text=${encodeURIComponent(text)}&isVideo=true&delay=700`,
+            `https://api.siputzx.my.id/api/m/brat?text=${encodeURIComponent(text)}&isVideo=true&delay=1000`,
             { responseType: 'stream' }
         );
 
