@@ -71,6 +71,13 @@ const apiData = {
             status: "online",
             description: "API untuk mencari aplikasi di Playstore berdasarkan kata kunci.",
             endpoint: "/api/playstore?q="
+        },
+        {
+            method: "GET",
+            title: "Webtoon Search",
+            status: "online",
+            description: "Cari Manhwa Favorit Mu Dengan Mudah!",
+            endpoint: "/api/webtoon?query="
         }
     ],
     "AI": [
