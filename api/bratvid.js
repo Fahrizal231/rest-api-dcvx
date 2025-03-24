@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 
     try {
         const videoUrl = `https://api.betabotz.eu.org/api/maker/brat-video?text=${encodeURIComponent(text)}&apikey=Btz-Fahrizal`;
-        const videoPath = path.join(__dirname, "../../public/temp/bratvideo.mp4");
+        const videoPath = path.join(__dirname, "../public/temp/bratvideo.mp4");
 
         // Download video ke file sementara
         const response = await axios({
