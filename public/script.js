@@ -90,24 +90,31 @@ const apiData = {
         },
         {
             method: "GET",
-            title: "Txt2Img",
+            title: "Txt2Img AI",
             status: "online",
             description: "API untuk membuat gambar dari AI dengan style yang banyak.",
             endpoint: "/api/txt2img?prompt=&style="
         },
         {
             method: "GET",
-            title: "Deepseek",
+            title: "Deepseek AI",
             status: "online",
             description: "API Untuk mengakses chat dengan deepseek ai!",
             endpoint: "/api/deepseek?content="
         },
         {
             method: "GET",
-            title: "Alicia",
+            title: "Alicia AI",
             status: "online",
             description: "API Untuk mengakses chat dengan alicia ai! yang lucu",
             endpoint: "/api/alicia?query=&user="
+        },
+        {
+            method: "GET",
+            title: "Turbo AI",
+            status: "online",
+            description: "API Untuk mengakses endpoint turbo ai yang cepat dan keren",
+            endpoint: "/api/turbo?query="
         }
     ],
     "Tools": [
