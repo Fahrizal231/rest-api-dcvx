@@ -1,202 +1,110 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dcvx Rest | Free Rest</title>
-    <meta property="og:title" content="Dcvx Rest | Docs Rest">
-    <meta property="og:description" content="Dokumentasi lengkap API dari Dcvx. Cepat, aman, dan terpercaya!">
-    <meta property="og:image" content="https://files.catbox.moe/brfmrw.jpg">
-    <meta property="og:url" content="https://acioooomd.biz.id">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="../styles.css">
-    <script defer src="../script.js"></script>
-    <link rel="icon" href="https://files.catbox.moe/brfmrw.jpg" type="image/jpeg">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f8f9fa;
-            padding: 20px;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-            border: 3px solid #007bff;
-        }
-        .title {
-            font-size: 28px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background: linear-gradient(90deg, #007bff, #00c6ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .description {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-        }
-        footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #777;
-        }
-        /* Hamburger Menu */
-        .menu-container {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        .menu-bar {
-            width: 30px;
-            height: 3px;
-            background: #333;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-        .nav-menu {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-            padding-top: 60px;
-            transition: left 0.3s ease-in-out;
-        }
-        .nav-menu a {
-            display: block;
-            padding: 15px;
-            color: #333;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .nav-menu a:hover {
-            background: #007bff;
-            color: white;
-        }
-        .menu-container.active .bar1 {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-        .menu-container.active .bar2 {
-            opacity: 0;
-        }
-        .menu-container.active .bar3 {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-        .nav-menu.active {
-            left: 0;
-        }
-        /* Button */
-        .dashboard-btn {
-            margin-top: 15px;
-            padding: 12px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            background: #007bff;
-            color: white;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .dashboard-btn:hover {
-            background: #0056b3;
-        }
-        /* List Endpoint */
-        .api-list {
-            text-align: left;
-            margin-top: 20px;
-            padding: 15px;
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        .api-list h2 {
-            text-align: center;
-            color: #007bff;
-        }
-        .api-list ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .api-list li {
-            background: white;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: 0.3s;
-        }
-        .api-list li:hover {
-            background: #007bff;
-            color: white;
-        }
-    </style>
-</head>
-<body>
 
-    <!-- Hamburger Menu -->
-    <div class="menu-container" onclick="toggleMenu()">
-        <div class="menu-bar bar1"></div>
-        <div class="menu-bar bar2"></div>
-        <div class="menu-bar bar3"></div>
-    </div>
-
-    <!-- Sidebar Menu -->
-    <div class="nav-menu" id="navMenu">
-        <a href="#">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </div>
-
-    <div class="container">
-        <img src="https://files.catbox.moe/brfmrw.jpg" alt="Logo Dcvx" class="profile-img">
-        <h1 class="title">WELCOME IN DCVX!</h1>
-        <p class="description">
-            Terima kasih telah menggunakan Dcvx Rest API! Kami menyediakan layanan API yang cepat dan gratis. 
-            Jika ingin mendukung kami, silakan kunjungi saluran kami.
-        </p>
-        
-        <!-- Tombol Dashboard -->
-        <button class="dashboard-btn" onclick="window.location.href='dashboard.html'">Go to Dashboard</button>
-
-        <!-- List Endpoint API -->
-        <div class="api-list">
-            <h2>📌 API Endpoints</h2>
-            <ul>
-                <li><strong>🔹 GET</strong> /api/v1/users</li>
-                <li><strong>🔹 GET</strong> /api/v1/posts</li>
-                <li><strong>🔹 POST</strong> /api/v1/auth/login</li>
-                <li><strong>🔹 POST</strong> /api/v1/auth/register</li>
-            </ul>
-        </div>
-
-        <footer>© 2025 API Dcvx – Fast & Reliable API Services.</footer>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById("navMenu").classList.toggle("active");
-            document.querySelector(".menu-container").classList.toggle("active");
-        }
-    </script>
-
-</body>
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Dcvx Rest | Free Rest</title>  
+    <meta property="og:title" content="Dcvx Rest | Docs Rest">  
+    <meta property="og:description" content="Dokumentasi lengkap API dari Dcvx. Cepat, aman, dan terpercaya!">  
+    <meta property="og:image" content="https://files.catbox.moe/brfmrw.jpg">  
+    <meta property="og:url" content="https://acioooomd.biz.id">  
+    <meta property="og:type" content="website">  
+    <link rel="stylesheet" href="../styles.css">  
+    <script defer src="../script.js"></script>  
+    <link rel="icon" href="https://files.catbox.moe/brfmrw.jpg" type="image/jpeg">  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+            background-color: #ffffff;  
+            padding: 20px;  
+            color: #333;  
+            animation: fadeIn 1s ease-in-out;  
+        }  
+        .container {  
+            max-width: 800px;  
+            margin: auto;  
+            background: #ffffff;  
+            padding: 20px;  
+            border-radius: 10px;  
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);  
+            transition: transform 0.3s, box-shadow 0.3s;  
+        }  
+        .container:hover {  
+            transform: scale(1.03);  
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);  
+        }  
+        .profile-img {  
+            width: 100px;  
+            height: 100px;  
+            border-radius: 50%;  
+            object-fit: cover;  
+            margin-bottom: 10px;  
+            border: 3px solid #007bff;  
+            transition: transform 0.3s ease-in-out;  
+        }  
+        .profile-img:hover {  
+            transform: rotate(10deg) scale(1.1);  
+        }  
+        .title {  
+            font-size: 28px;  
+            font-weight: bold;  
+            text-transform: uppercase;  
+            letter-spacing: 2px;  
+            position: relative;  
+            display: inline-block;  
+            padding-bottom: 5px;  
+            background: linear-gradient(90deg, #007bff, #00c6ff);  
+            -webkit-background-clip: text;  
+            -webkit-text-fill-color: transparent;  
+            animation: glow 1.5s infinite alternate ease-in-out;  
+        }  
+        .title::after {  
+            content: "";  
+            display: block;  
+            width: 50%;  
+            height: 4px;  
+            background: #007bff;  
+            margin: 5px auto 0;  
+            border-radius: 5px;  
+            animation: slideIn 1s ease-in-out;  
+        }  
+        .description {  
+            font-size: 16px;  
+            color: #555;  
+            line-height: 1.6;  
+        }  
+        footer {  
+            margin-top: 20px;  
+            font-size: 14px;  
+            color: #777;  
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);  
+        }  
+        @keyframes fadeIn {  
+            from { opacity: 0; transform: translateY(-10px); }  
+            to { opacity: 1; transform: translateY(0); }  
+        }  
+        @keyframes slideIn {  
+            from { width: 0; }  
+            to { width: 50%; }  
+        }  
+        @keyframes glow {  
+            from { text-shadow: 0 0 10px rgba(0, 123, 255, 0.5); }  
+            to { text-shadow: 0 0 20px rgba(0, 123, 255, 0.8); }  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <img src="https://files.catbox.moe/brfmrw.jpg" alt="Logo Dcvx" class="profile-img">  
+        <h1 class="title">WELCOME IN DCVX!</h1>  
+        <p class="description">  
+            Terimakasih Telah Menggunakan Rest Api Kami! Kami Akan Memberikan Rest Api Yang Cepat Dan Gratis Untuk Digunakan Semua Orang. Selalu Gunakan Dcvx Rest Api Ya!    
+            Jika Ingin Menolong / Donate Bisa Lihat Saluran Ya!  
+        </p>  
+        <div id="api-categories"></div>  
+        <footer>© 2025 API Dcvx – Fast & Reliable API Services.</footer>  
+    </div>  
+</body>  
 </html>
