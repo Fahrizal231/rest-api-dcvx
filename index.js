@@ -47,7 +47,7 @@ const routes = [
     "ytdl", "twitterdl", "igdl", "fbdl", "ttdl", "githubstalk",
     "searchgroups", "ttsearch", "ytsearch", "llama-3.3-70b-versatile",
     "txt2img", "ssweb", "tahukahkamu", "brat", "quotes", 
-    "playstore", "khodam", "bratanim",];
+    "playstore", "khodam", "bratanime",];
 
 routes.forEach(route => {
     try {
