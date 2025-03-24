@@ -15,15 +15,14 @@ router.get("/", async (req, res) => {
     });
 
     const data = response.data;
-    if (!data || !data.jadwal) {
+    if (!data || !data.data) {
       return res.status(404).json({ status: 404, message: "Jadwal sholat tidak ditemukan." });
     }
 
     res.json({
       status: 200,
       creator: "Fahrizal",
-      kota,
-      jadwal: data.jadwal, // Menampilkan jadwal sholat
+      data: data.data, // Menampilkan data jadwal sholat
     });
   } catch (err) {
     res.status(500).json({ status: 500, message: "Terjadi kesalahan saat mengambil data." });
