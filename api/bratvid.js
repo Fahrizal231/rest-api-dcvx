@@ -1,11 +1,17 @@
-const express = require("express");
-const axios = require("axios");
-const fs = require("fs");
-const path = require("path");
+const express = require('express');
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 
 const router = express.Router();
+const tempDir = path.join(__dirname, '../public/temp');
 
-router.get("/", async (req, res) => {
+// Pastikan folder temp ada
+if (!fs.existsSync(tempDir)) {
+    fs.mkdirSync(tempDir, { recursive: true });
+}
+
+router.get('/', async (req, res) => {
     const { text } = req.query;
 
     if (!text) {
@@ -17,38 +23,23 @@ router.get("/", async (req, res) => {
     }
 
     try {
-        const videoUrl = `https://api.betabotz.eu.org/api/maker/brat-video?text=${encodeURIComponent(text)}&apikey=Btz-Fahrizal`;
-        const videoPath = path.join(__dirname, "../public/temp/bratvideo.mp4");
+        const apiUrl = `https://api.betabotz.eu.org/api/maker/brat-video?text=${encodeURIComponent(text)}&apikey=Btz-Fahrizal`;
+        const response = await axios.get(apiUrl, { responseType: 'arraybuffer' });
 
-        // Download video ke file sementara
-        const response = await axios({
-            method: "GET",
-            url: videoUrl,
-            responseType: "stream",
-        });
+        const filePath = path.join(tempDir, 'bratvideo.mp4');
+        fs.writeFileSync(filePath, response.data);
 
-        const writer = fs.createWriteStream(videoPath);
-        response.data.pipe(writer);
-
-        writer.on("finish", () => {
-            res.sendFile(videoPath, err => {
-                if (!err) {
-                    // Hapus file setelah dikirim
-                    fs.unlinkSync(videoPath);
-                }
-            });
-        });
-
-        writer.on("error", err => {
-            console.error("Download error:", err);
-            res.status(500).json({
-                status: 500,
-                message: "Terjadi kesalahan saat mengambil video",
-                creator: "Fahrizal"
-            });
+        res.sendFile(filePath, (err) => {
+            if (err) {
+                console.error("Error saat mengirim file:", err);
+                res.status(500).json({ status: 500, message: "Gagal mengirim video", creator: "Fahrizal" });
+            }
+            // Hapus file setelah dikirim untuk menghemat penyimpanan
+            fs.unlinkSync(filePath);
         });
 
     } catch (error) {
+        console.error("Error fetching video:", error);
         res.status(500).json({
             status: 500,
             message: "Terjadi kesalahan saat mengambil video",
