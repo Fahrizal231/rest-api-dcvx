@@ -1,60 +1,45 @@
 const express = require("express");
-const cors = require("cors");
-const path = require("path");
+const axios = require("axios");
+const router = express.Router();
 
-const app = express();
-
-let totalRequests = 0;
-let clients = [];
-
-app.use(cors());
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use((req, res, next) => {
-    totalRequests++;
-    sendUpdateToClients();
-    next();
-});
-
-app.get("/", (req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
-app.get("/monitor-page", (req, res) => res.sendFile(path.join(__dirname, "public", "monitor", "monitor.html")));
-
-app.get("/monitor", (req, res) => {
-    res.set({
-        "Content-Type": "text/event-stream",
-        "Cache-Control": "no-cache",
-        "Connection": "keep-alive",
+router.get("/", async (req, res) => {
+  const { query, user } = req.query;
+  
+  if (!query || !user) {
+    return res.status(400).json({ 
+      status: 400, 
+      creator: "Fahrizal", 
+      message: "[ X ] Masukkan query dan user!" 
     });
-    res.flushHeaders();
+  }
 
-    const clientId = Date.now();
-    clients.push({ id: clientId, res });
-
-    res.write(`data: ${JSON.stringify({ totalRequests })}\n\n`);
-
-    req.on("close", () => {
-        clients = clients.filter(client => client.id !== clientId);
+  try {
+    const response = await axios.get(`https://api.diioffc.web.id/api/ai/alicia`, {
+      params: { query, user }
     });
-});
 
-function sendUpdateToClients() {
-    clients.forEach(client => {
-        client.res.write(`data: ${JSON.stringify({ totalRequests })}\n\n`);
-    });
-}
-
-const routes = [
-    "ytdl", "twitterdl", "igdl", "fbdl", "ttdl", "githubstalk",
-    "searchgroups", "ttsearch", "ytsearch", "llama-3.3-70b-versatile",
-    "txt2img", "ssweb", "tahukahkamu", "brat", "quotes", 
-    "playstore", "khodam", "bratanime","bratvid","deepseek","alicia",];
-
-routes.forEach(route => {
-    try {
-        app.use(`/api/${route}`, require(`./api/${route}`));
-    } catch (error) {
-        console.error(`Gagal memuat route /api/${route}: ${error.message}`);
+    const data = response.data;
+    if (!data || !data.result) {
+      return res.status(404).json({ 
+        status: 404, 
+        creator: "Fahrizal", 
+        message: "Tidak ada respons dari Alicia AI." 
+      });
     }
+
+    res.json({
+      status: 200,
+      creator: "Fahrizal",
+      user,
+      response: data.result 
+    });
+  } catch (err) {
+    res.status(500).json({ 
+      status: 500, 
+      creator: "Fahrizal", 
+      message: "Terjadi kesalahan saat mengambil data." 
+    });
+  }
 });
 
-module.exports = app;
+module.exports = router;
