@@ -1,5 +1,7 @@
 const express = require("express");
 const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
 
 const router = express.Router();
 
@@ -15,13 +17,37 @@ router.get("/", async (req, res) => {
     }
 
     try {
-        const response = await axios.get(
-            `https://api.betabotz.eu.org/api/maker/brat-video?text=${encodeURIComponent(text)}&apikey=Btz-Fahrizal`,
-            { responseType: "arraybuffer" }
-        );
+        const videoUrl = `https://api.betabotz.eu.org/api/maker/brat-video?text=${encodeURIComponent(text)}&apikey=Btz-Fahrizal`;
+        const videoPath = path.join(__dirname, "../../public/temp/bratvideo.mp4");
 
-        res.setHeader("Content-Type", "video/mp4");
-        res.send(response.data);
+        // Download video ke file sementara
+        const response = await axios({
+            method: "GET",
+            url: videoUrl,
+            responseType: "stream",
+        });
+
+        const writer = fs.createWriteStream(videoPath);
+        response.data.pipe(writer);
+
+        writer.on("finish", () => {
+            res.sendFile(videoPath, err => {
+                if (!err) {
+                    // Hapus file setelah dikirim
+                    fs.unlinkSync(videoPath);
+                }
+            });
+        });
+
+        writer.on("error", err => {
+            console.error("Download error:", err);
+            res.status(500).json({
+                status: 500,
+                message: "Terjadi kesalahan saat mengambil video",
+                creator: "Fahrizal"
+            });
+        });
+
     } catch (error) {
         res.status(500).json({
             status: 500,
