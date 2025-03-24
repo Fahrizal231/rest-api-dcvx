@@ -87,6 +87,13 @@ const apiData = {
             status: "online",
             description: "API untuk membuat gambar dari AI dengan style yang banyak.",
             endpoint: "/api/txt2img?prompt=&style="
+        },
+        {
+            method: "GET",
+            title: "Deepseek",
+            status: "online",
+            description: "API Untuk mengakses chat dengan deepseek ai!",
+            endpoint: "/api/txt2img?prompt=&style="
         }
     ],
     "Tools": [
