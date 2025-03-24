@@ -9,10 +9,118 @@ const apiData = {
         },
         {
             method: "GET",
+            title: "Twitter Downloader",
+            status: "online",
+            description: "API untuk mendownload video atau gambar dari Twitter.",
+            endpoint: "/api/twitterdl?url="
+        },
+        {
+            method: "GET",
+            title: "Instagram Downloader",
+            status: "online",
+            description: "API untuk mendownload video atau gambar dari Instagram.",
+            endpoint: "/api/igdl?url="
+        },
+        {
+            method: "GET",
+            title: "Facebook Downloader",
+            status: "online",
+            description: "API untuk mendownload video dari Facebook.",
+            endpoint: "/api/fbdl?url="
+        },
+        {
+            method: "GET",
             title: "TikTok Downloader",
             status: "online",
             description: "API untuk mendownload video dari TikTok.",
             endpoint: "/api/ttdl?url="
+        }
+    ],
+    "Search": [
+        {
+            method: "GET",
+            title: "GitHub Stalk",
+            status: "online",
+            description: "API untuk melihat profil GitHub pengguna.",
+            endpoint: "/api/githubstalk?username="
+        },
+        {
+            method: "GET",
+            title: "Search Groups",
+            status: "online",
+            description: "API untuk mencari grup WhatsApp berdasarkan kata kunci.",
+            endpoint: "/api/searchgroups?q="
+        },
+        {
+            method: "GET",
+            title: "TikTok Search",
+            status: "online",
+            description: "API untuk mencari video dari TikTok berdasarkan query.",
+            endpoint: "/api/ttsearch?q="
+        },
+        {
+            method: "GET",
+            title: "YouTube Search",
+            status: "online",
+            description: "API untuk mencari video dari YouTube berdasarkan kata kunci atau query.",
+            endpoint: "/api/ytsearch?q="
+        },
+        {
+            method: "GET",
+            title: "Playstore Search",
+            status: "online",
+            description: "API untuk mencari aplikasi di Playstore berdasarkan kata kunci.",
+            endpoint: "/api/playstore?q="
+        }
+    ],
+    "AI": [
+        {
+            method: "GET",
+            title: "LLaMA 3.3 70B Versatile",
+            status: "online",
+            description: "API untuk mengakses model LLaMA 3.3 70B yang serbaguna.",
+            endpoint: "/api/llama-3.3-70b-versatile?content="
+        },
+        {
+            method: "GET",
+            title: "Txt2Img",
+            status: "online",
+            description: "API untuk membuat gambar dari AI dengan style yang banyak.",
+            endpoint: "/api/txt2img?prompt=&style="
+        }
+    ],
+    "Tools": [
+        {
+            method: "GET",
+            title: "Screenshot Web",
+            status: "online",
+            description: "API untuk screenshot website dengan mudah.",
+            endpoint: "/api/ssweb?url="
+        }
+    ],
+    "Fun": [
+        {
+            method: "GET",
+            title: "Tahu Kah Kamu?",
+            status: "online",
+            description: "Permainan seru yang menunjukkan fakta-fakta random yang mungkin belum kamu ketahui.",
+            endpoint: "/api/tahukahkamu"
+        },
+        {
+            method: "GET",
+            title: "Cek Khodam",
+            status: "online",
+            description: "API untuk mengecek khodam berdasarkan nama yang diberikan.",
+            endpoint: "/api/khodam?nama="
+        }
+    ],
+    "Quotes": [
+        {
+            method: "GET",
+            title: "Random Quotes",
+            status: "online",
+            description: "Random Quotes, Dari Tokoh-tokoh Terkenal Dan Lain-Lain",
+            endpoint: "/api/quotes"
         }
     ],
     "Sticker": [
@@ -76,12 +184,7 @@ function createApiItem(api) {
 
     const apiButton = document.createElement('button');
     apiButton.textContent = 'GET';
-    apiButton.onclick = () => {
-        const userQuery = prompt("Masukkan query (jika diperlukan):");
-        if (userQuery !== null) {
-            window.location.href = api.endpoint + userQuery;
-        }
-    };
+    apiButton.onclick = () => window.location.href = api.endpoint;
 
     apiDescription.appendChild(apiDescriptionText);
     apiDescription.appendChild(apiEndpoint);
@@ -94,10 +197,20 @@ function createApiItem(api) {
 }
 
 function setupToggleDescriptions() {
-    document.querySelectorAll('.api-header').forEach(header => {
+    const apiHeaders = document.querySelectorAll('.api-header');
+
+    apiHeaders.forEach(header => {
         header.addEventListener('click', function () {
+            document.querySelectorAll('.api-description').forEach(desc => {
+                desc.style.display = "none";
+            });
+
             const description = this.nextElementSibling;
-            description.style.display = (description.style.display === "none" || !description.style.display) ? "block" : "none";
+            if (description.style.display === "none" || !description.style.display) {
+                description.style.display = "block";
+            } else {
+                description.style.display = "none";
+            }
         });
     });
 }
