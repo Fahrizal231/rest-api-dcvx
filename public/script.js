@@ -80,6 +80,16 @@ const apiData = {
             endpoint: "/api/webtoon?query="
         }
     ],
+    "Islamic": [
+        {
+            method: "GET",
+            title: "Jadwal Sholat",
+            status: "online",
+            description: "API untuk melihat jadwal sholat berdasarkan kota.",
+            endpoint: "/api/jadwalsholat?kota="
+        }
+    ]
+};
     "AI": [
         {
             method: "GET",
