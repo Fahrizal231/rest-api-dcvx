@@ -9,13 +9,8 @@ router.get('/', async (req, res) => {
         return res.status(400).json({ status: 400, message: 'Masukkan text untuk kutipan!' });
     }
 
-    if (!name) {
-        name = "User";
-    }
-
-    if (!avatar) {
-        avatar = "https://files.catbox.moe/3gbpgu.jpg"; // Avatar default
-    }
+    name = name || "Fahrizal"; // Default name
+    avatar = avatar || "https://files.catbox.moe/3gbpgu.jpg"; // Default avatar
 
     try {
         const apiUrl = `https://api.ryzendesu.vip/api/image/quotly?text=${encodeURIComponent(text)}&name=${encodeURIComponent(name)}&avatar=${encodeURIComponent(avatar)}`;
