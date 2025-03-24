@@ -94,6 +94,13 @@ const apiData = {
             status: "online",
             description: "API Untuk mengakses chat dengan deepseek ai!",
             endpoint: "/api/deepseek?content="
+        },
+        {
+            method: "GET",
+            title: "Alicia",
+            status: "online",
+            description: "API Untuk mengakses chat dengan alicia ai! yang lucu",
+            endpoint: "/api/alicia?query=&user="
         }
     ],
     "Tools": [
