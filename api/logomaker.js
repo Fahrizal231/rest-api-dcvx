@@ -22,7 +22,7 @@ async function logoGenerator(option = {}) {
 }
 
 // Endpoint API untuk Logo Generator
-router.get("/logo", async (req, res) => {
+router.get("/", async (req, res) => {
     const { idea, slogan, title } = req.query;
 
     if (!idea || !title) {
