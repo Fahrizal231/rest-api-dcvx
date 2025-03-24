@@ -215,7 +215,7 @@ function loadApiData() {
         // Menampilkan nama kategori + jumlah total endpoint
         const categoryTitle = document.createElement("h2");
         const totalEndpoints = apiData[category].length;
-        categoryTitle.textContent = `${category} (${totalEndpoints})`;
+        categoryTitle.textContent = `Category ${category} [ ${totalEndpoints} ]`;
 
         const apiList = document.createElement("div");
         apiList.className = "api-list";
