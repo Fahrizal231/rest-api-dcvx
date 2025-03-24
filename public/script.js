@@ -108,13 +108,6 @@ const apiData = {
         },
         {
             method: "GET",
-            title: "Brat Generator",
-            status: "online",
-            description: "Fitur untuk membuat gambar brat generator dari teks yang diberikan.",
-            endpoint: "/api/brat?text="
-        },
-        {
-            method: "GET",
             title: "Cek Khodam",
             status: "online",
             description: "API untuk mengecek khodam berdasarkan nama yang diberikan.",
@@ -128,6 +121,22 @@ const apiData = {
             status: "online",
             description: "Random Quotes, Dari Tokoh-tokoh Terkenal Dan Lain-Lain",
             endpoint: "/api/quotes"
+        }
+    ],
+    "Sticker": [
+        {
+            method: "GET",
+            title: "Brat Generator",
+            status: "online",
+            description: "Fitur untuk membuat gambar brat generator dari teks yang diberikan.",
+            endpoint: "/api/brat?text="
+        },
+        {
+            method: "GET",
+            title: "Bratanime",
+            status: "online",
+            description: "Fitur untuk membuat gambar anime brat dari teks yang diberikan.",
+            endpoint: "/api/bratanime?text="
         }
     ]
 };
