@@ -7,17 +7,17 @@ router.get('/', async (req, res) => {
 
     // Jika tidak ada teks, minta pengguna memasukkan teks
     if (!text) {
-        return res.status(400).json({ status: 400, message: 'Masukkan text untuk kutipan!' });
+        return res.status(400).json({ status: 400, message: '[ X ] Masukkan text untuk membuat qc!' });
     }
 
     // Jika nama kosong, tetapkan default
     if (!name) {
-        name = "User"; // Bisa diganti dengan nama pengguna yang login
+        name = "Fahrizal"; // Bisa diganti dengan nama pengguna yang login
     }
 
     // Jika avatar kosong, gunakan avatar default
     if (!avatar) {
-        avatar = "https://example.com/default-avatar.png"; // Ganti dengan URL avatar default
+        avatar = "https://files.catbox.moe/3gbpgu.jpg"; // Ganti dengan URL avatar default
     }
 
     try {
