@@ -138,6 +138,13 @@ const apiData = {
             description: "Fitur untuk membuat gambar anime brat dari teks yang diberikan.",
             endpoint: "/api/bratanime?text="
         }
+       {
+            method: "GET",
+            title: "Brat Animate",
+            status: "online",
+            description: "Fitur untuk membuat brat video dari text yang diberikan",
+            endpoint: "/api/bratvid?text="
+        }
     ]
 };
 
