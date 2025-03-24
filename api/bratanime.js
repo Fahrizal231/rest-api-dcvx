@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const router = express.Router();
 
-router.get('/bratanim', async (req, res) => {
+router.get('/', async (req, res) => {
     const { text } = req.query;
 
     if (!text) {
@@ -15,13 +15,16 @@ router.get('/bratanim', async (req, res) => {
     }
 
     try {
-        const response = await axios.get(`https://rest.cloudkuimages.com/api/maker/bratanime?text=${encodeURIComponent(text)}`, {
-            responseType: 'arraybuffer'
-        });
+        const { data, headers } = await axios.get(
+            `https://rest.cloudkuimages.com/api/maker/bratanime?text=${encodeURIComponent(text)}`,
+            { responseType: 'arraybuffer' }
+        );
 
-        res.setHeader('Content-Type', 'image/png');
-        res.send(response.data);
+        res.setHeader('Content-Type', headers['content-type'] || 'image/png');
+        res.send(data);
     } catch (error) {
+        console.error("Error fetching image:", error.message);
+        
         res.status(500).json({
             status: 500,
             message: "Terjadi kesalahan saat mengambil gambar",
