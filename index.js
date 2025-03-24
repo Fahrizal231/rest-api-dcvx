@@ -16,13 +16,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-app.get("/monitor-page", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "monitor", "monitor.html"));
-});
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
+app.get("/monitor-page", (req, res) => res.sendFile(path.join(__dirname, "public", "monitor", "monitor.html")));
 
 app.get("/monitor", (req, res) => {
     res.set({
@@ -33,8 +28,7 @@ app.get("/monitor", (req, res) => {
     res.flushHeaders();
 
     const clientId = Date.now();
-    const newClient = { id: clientId, res };
-    clients.push(newClient);
+    clients.push({ id: clientId, res });
 
     res.write(`data: ${JSON.stringify({ totalRequests })}\n\n`);
 
@@ -49,9 +43,19 @@ function sendUpdateToClients() {
     });
 }
 
-const routes = ["ytdl", "twitterdl", "igdl", "fbdl", "ttdl", "githubstalk", "searchgroups", "ttsearch", "ytsearch", "llama-3.3-70b-versatile", "txt2img", "ssweb", "tahukahkamu", "brat","quotes","playstore","khodam","bratanim"];
+const routes = [
+    "ytdl", "twitterdl", "igdl", "fbdl", "ttdl", "githubstalk",
+    "searchgroups", "ttsearch", "ytsearch", "llama-3.3-70b-versatile",
+    "txt2img", "ssweb", "tahukahkamu", "brat", "quotes", 
+    "playstore", "khodam", "bratanim"
+];
+
 routes.forEach(route => {
-    app.use(`/api/${route}`, require(`./api/${route}`));
+    try {
+        app.use(`/api/${route}`, require(`./api/${route}`));
+    } catch (error) {
+        console.error(`Gagal memuat route /api/${route}: ${error.message}`);
+    }
 });
 
 module.exports = app;
