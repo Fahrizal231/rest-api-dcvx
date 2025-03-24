@@ -9,20 +9,21 @@ router.get('/', async (req, res) => {
         return res.status(400).json({ status: 400, message: 'Masukkan text untuk kutipan!' });
     }
 
-    name = name || "Fahrizal"; // Default name
-    avatar = avatar || "https://files.catbox.moe/3gbpgu.jpg"; // Default avatar
+    name = name || "Fahrizal";
+    avatar = avatar || "https://files.catbox.moe/3gbpgu.jpg";
 
     try {
         const apiUrl = `https://api.ryzendesu.vip/api/image/quotly?text=${encodeURIComponent(text)}&name=${encodeURIComponent(name)}&avatar=${encodeURIComponent(avatar)}`;
 
         const response = await axios.get(apiUrl, {
             responseType: 'arraybuffer',
+            headers: { 'User-Agent': 'Mozilla/5.0' }
         });
 
         res.setHeader('Content-Type', 'image/png');
         res.send(response.data);
     } catch (error) {
-        console.error(error);
+        console.error("Error:", error.response ? error.response.data : error.message);
         res.status(500).json({ status: 500, message: 'Terjadi kesalahan saat mengambil gambar.' });
     }
 });
