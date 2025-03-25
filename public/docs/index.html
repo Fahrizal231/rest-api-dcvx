@@ -29,17 +29,19 @@
             margin: 0 auto;
         }
 
-        /* Hamburger Button */
+        /* Tombol Hamburger */
         .hamburger {
-            position: fixed;
+            position: fixed; /* Tetap di posisi atas */
             top: 15px;
             left: 15px;
             font-size: 24px;
             cursor: pointer;
-            z-index: 100;
+            z-index: 1000; /* Pastikan di atas elemen lain */
             background: none;
             border: none;
             outline: none;
+            padding: 10px;
+            transition: opacity 0.3s ease-in-out; /* Efek saat muncul/hilang */
         }
 
         /* Sidebar */
@@ -90,7 +92,7 @@
     </style>    
 </head>    
 <body>   
-    <!-- Hamburger Button -->
+    <!-- Tombol Hamburger -->
     <button class="hamburger" onclick="toggleSidebar()">☰</button>
 
     <!-- Sidebar -->
@@ -122,18 +124,6 @@
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("show");
         }
-
-        let lastScrollTop = 0;
-        window.addEventListener("scroll", function () {
-            let sidebar = document.getElementById("sidebar");
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (currentScroll > lastScrollTop) {
-                // Scroll ke bawah, sembunyikan sidebar
-                sidebar.classList.remove("show");
-            }
-            lastScrollTop = currentScroll;
-        });
     </script>
 </body>    
 </html>
