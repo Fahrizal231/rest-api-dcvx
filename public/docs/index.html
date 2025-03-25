@@ -95,7 +95,7 @@
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
-        <h2> </> DCVX Rest</h2>
+        <h2>DCVX Rest</h2>
         <ul>
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Donasi</a></li>
@@ -111,7 +111,7 @@
             Terimakasih Telah Menggunakan Rest Api Kami! Kami Akan Memberikan Rest Api Yang Cepat Dan Gratis Untuk Digunakan Semua Orang. Selalu Gunakan Dcvx Rest Api Ya!      
             Jika Ingin Menolong / Donate Bisa Lihat Saluran Ya!    
         </p>    
-        
+
         <!-- Daftar API -->
         <div id="api-categories"></div>    
 
@@ -122,6 +122,18 @@
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("show");
         }
+
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function () {
+            let sidebar = document.getElementById("sidebar");
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop) {
+                // Scroll ke bawah, sembunyikan sidebar
+                sidebar.classList.remove("show");
+            }
+            lastScrollTop = currentScroll;
+        });
     </script>
 </body>    
 </html>
