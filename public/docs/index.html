@@ -3,7 +3,7 @@
 <head>    
     <meta charset="UTF-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Dcvx Rest | Free Rest</title>    
+    <title>Dcvx Rest | Docs Rest</title>    
     <meta property="og:title" content="Dcvx Rest | Docs Rest">    
     <meta property="og:description" content="Dokumentasi lengkap API dari Dcvx. Cepat, aman, dan terpercaya!">    
     <meta property="og:image" content="https://files.catbox.moe/brfmrw.jpg">    
@@ -41,7 +41,6 @@
             border: none;
             outline: none;
             padding: 10px;
-            transition: opacity 0.3s ease-in-out; /* Efek saat muncul/hilang */
         }
 
         /* Sidebar */
@@ -89,6 +88,11 @@
         .sidebar ul li a:hover {
             background: #f0f0f0;
         }
+
+        /* Sidebar hilang saat scroll ke bawah */
+        .sidebar.hidden {
+            transform: translateY(-100%);
+        }
     </style>    
 </head>    
 <body>   
@@ -124,6 +128,21 @@
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("show");
         }
+
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            let sidebar = document.getElementById("sidebar");
+
+            if (currentScroll > lastScrollTop) {
+                // Scroll ke bawah, sembunyikan sidebar
+                sidebar.classList.add("hidden");
+            } else {
+                // Scroll ke atas, tampilkan sidebar
+                sidebar.classList.remove("hidden");
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
     </script>
 </body>    
 </html>
