@@ -2,10 +2,17 @@ const apiData = {
     "Downloader": [
         {
             method: "GET",
-            title: "YouTube Downloader",
+            title: "YTMP3 Downloader",
             status: "online",
-            description: "API untuk mendownload video atau shorts dari YouTube.",
-            endpoint: "/api/ytdl?url=&format="
+            description: "API untuk mendownload audio MP3 dari YouTube.",
+            endpoint: "/api/ytmp3?url="
+        },
+        {
+            method: "GET",
+            title: "YTMP4 Downloader",
+            status: "online",
+            description: "API untuk mendownload video MP4 dari YouTube.",
+            endpoint: "/api/ytmp4?url="
         },
         {
             method: "GET",
