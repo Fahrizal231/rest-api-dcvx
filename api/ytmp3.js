@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
     // Format hasilnya sesuai JSON yang Anda minta
     const mp3Data = {
       status: true,
-      owner: "Fahrizal",
+      Creator: "Fahrizal",
       BK9: {
         id: data.data[0].id || "",
         image: data.data[0].thumbnail || "",
