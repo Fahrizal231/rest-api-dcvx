@@ -11,23 +11,31 @@ router.get("/", async (req, res) => {
 
   try {
     const response = await axios.get("https://bk9.fun/download/youtube", {
-      params: { url }
+      params: { url },
     });
 
-    const data = response.data;
-    if (!data || !data.BK9 || !data.BK9.downloadUrl) {
+    const { data } = response;
+
+    if (!data || !data.BK9 || !data.BK9.BK8) {
       return res.status(404).json({ status: false, message: "Gagal mengambil data." });
+    }
+
+    // Cari video dengan resolusi 720p di dalam BK8
+    const video720p = data.BK9.BK8.find((video) => video.quality === "720p");
+
+    if (!video720p) {
+      return res.status(404).json({ status: false, message: "Video 720p tidak tersedia." });
     }
 
     res.json({
       status: true,
-      creator: "Fahrizal",  // Ubah creator menjadi Fahrizal
+      creator: "Fahrizal",
       video: {
-        id: data.BK9.id || "",
-        image: data.BK9.image || "",
         title: data.BK9.title || "",
-        downloadUrl: data.BK9.downloadUrl || ""
-      }
+        resolution: video720p.quality,
+        format: video720p.format,
+        downloadUrl: video720p.link,
+      },
     });
   } catch (err) {
     res.status(500).json({ status: false, message: "Terjadi kesalahan saat mengambil data." });
