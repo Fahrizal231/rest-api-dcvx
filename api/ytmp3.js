@@ -6,26 +6,34 @@ router.get("/", async (req, res) => {
   const { url } = req.query;
 
   if (!url) {
-    return res.status(400).json({ status: 400, message: "Masukkan URL YouTube!" });
+    return res.status(400).json({ status: false, message: "Masukkan URL YouTube!" });
   }
 
   try {
     const response = await axios.get("https://api.agatz.xyz/api/ytmp3", {
-      params: { url },
+      params: { url }
     });
 
     const data = response.data;
-    if (!data || !data.data) {
-      return res.status(404).json({ status: 404, message: "Gagal mengambil data audio." });
+    if (!data || !data.data || data.data.length === 0) {
+      return res.status(404).json({ status: false, message: "Gagal mengambil data." });
     }
 
-    res.json({
-      status: 200,
-      creator: "Fahrizal",
-      data: data.data, // Menampilkan data dari API Agatz tanpa modifikasi
-    });
+    // Format hasilnya sesuai JSON yang Anda minta
+    const mp3Data = {
+      status: true,
+      owner: "Fahrizal",
+      BK9: {
+        id: data.data[0].id || "",
+        image: data.data[0].thumbnail || "",
+        title: data.data[0].title || "",
+        downloadUrl: data.data[0].downloadUrl || ""
+      }
+    };
+
+    res.json(mp3Data);
   } catch (err) {
-    res.status(500).json({ status: 500, message: "Terjadi kesalahan saat mengambil data." });
+    res.status(500).json({ status: false, message: "Terjadi kesalahan saat mengambil data." });
   }
 });
 
