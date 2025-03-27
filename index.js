@@ -57,7 +57,7 @@ function sendUpdateToClients() {
 
 // Daftar endpoint API
 const routes = [
-    "ytdl", "twitterdl", "igdl", "fbdl", "ttdl", 
+    "ytmp4", "twitterdl", "igdl", "fbdl", "ttdl", 
     "githubstalk", "searchgroups", "ttsearch", "ytsearch", 
     "llama-3.3-70b-versatile", "txt2img", "ssweb", "khodam", 
     "tahukahkamu", "brat", "bratanime", "bratvid", "deepseek", 
