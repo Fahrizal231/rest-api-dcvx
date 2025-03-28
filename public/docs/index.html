@@ -18,7 +18,7 @@
         :root {
             --bg-dark: #0a0f1e;
             --glass-bg: rgba(20, 25, 40, 0.85);
-            --border-glow: #0077b6;
+            --border-glow: #00b4d8;
             --text-color: #ffffff;
             --shadow-color: rgba(0, 0, 0, 0.6);
         }
@@ -101,6 +101,20 @@
             line-height: 1.5;
         }
 
+        #api-categories {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            width: 100%;
+            text-align: left;
+            color: #ddd;
+            font-size: 14px;
+            overflow: auto;
+            box-shadow: 0 0 10px var(--border-glow);
+            border: 1px solid var(--border-glow);
+        }
+
         footer {
             margin-top: 15px;
             font-size: 12px;
@@ -129,11 +143,14 @@
             Jika ingin mendukung proyek ini, silakan lihat saluran donasi kami!
         </p>
 
+        <!-- API Categories -->
+        <div id="api-categories"></div>
+
         <footer>© 2025 API Dcvx – Fast & Reliable API Services.</footer>
     </div>
 
     <script>
-        // Tambahkan efek animasi pada judul
+        // Animasi judul saat halaman dimuat
         window.onload = function () {
             document.getElementById("welcome-text").classList.add("show");
         };
