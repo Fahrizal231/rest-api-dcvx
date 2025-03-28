@@ -7,26 +7,18 @@
 
 body {
     background: linear-gradient(120deg, #ffffff, #d6ecff, #ffffff);
-    background-size: 400% 400%; /* Perbesar ukuran gradasi */
+    background-size: 400% 400%;
     color: #333;
     line-height: 1.6;
     padding: 20px;
-    font-family: Arial, sans-serif;
-    position: relative;
     min-height: 100vh;
-    animation: gradientBackground 10s ease infinite; /* Animasi gradasi */
+    animation: gradientBackground 10s ease infinite;
 }
 
 @keyframes gradientBackground {
-    0% {
-        background-position: 0% 50%; /* Posisi awal gradasi */
-    }
-    50% {
-        background-position: 100% 50%; /* Posisi tengah gradasi */
-    }
-    100% {
-        background-position: 0% 50%; /* Kembali ke posisi awal */
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .wave-container {
@@ -37,7 +29,7 @@ body {
     height: 20%;
     overflow: hidden;
     pointer-events: none;
-    z-index: -1; /* Pastikan wave di belakang konten */
+    z-index: -1;
 }
 
 .wave {
@@ -83,7 +75,7 @@ h1 {
     text-align: center;
 }
 
-/* Gaya untuk Kategori */
+/* Kategori API */
 .api-category {
     margin-bottom: 30px;
 }
@@ -99,64 +91,63 @@ h1 {
 .api-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px; /* Kurangi jarak antar item */
 }
 
 .api-item {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 20px;
+    padding: 12px; /* Kurangi padding */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .api-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .api-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 8px;
     cursor: pointer;
 }
 
 .api-method {
-    font-size: 14px;
+    font-size: 12px; /* Ukuran lebih kecil */
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 4px 8px; /* Padding lebih kecil */
     border-radius: 4px;
     background-color: #007bff;
     color: #fff;
-    width: 60px;
+    width: auto; /* Lebih fleksibel */
     text-align: center;
 }
 
-/* Gaya untuk Badge Status */
+/* Badge Status API */
 .api-status-badge {
     font-size: 12px;
     font-weight: bold;
     padding: 4px 8px;
     border-radius: 12px;
-    margin-left: 10px;
+    margin-left: 5px;
     text-transform: uppercase;
 }
 
 .api-status-badge.online {
-    background-color: #28a745; /* Hijau untuk ONLINE */
+    background-color: #28a745;
     color: #fff;
 }
 
 .api-status-badge.offline {
-    background-color: #dc3545; /* Merah untuk OFFLINE */
+    background-color: #dc3545;
     color: #fff;
 }
 
 .api-title {
-    font-size: 18px;
+    font-size: 14px; /* Lebih kecil */
     font-weight: bold;
     color: #007bff;
 }
@@ -166,38 +157,39 @@ h1 {
 }
 
 .api-description {
-    margin-top: 10px;
-    padding: 10px;
+    margin-top: 8px;
+    padding: 8px;
     background-color: #f9f9f9;
     border-left: 4px solid #007bff;
     border-radius: 4px;
-    display: none; /* Deskripsi disembunyikan secara default */
+    display: none;
 }
 
 .api-description p {
     margin: 0;
-    font-size: 14px;
+    font-size: 12px; /* Lebih kecil */
     color: #555;
 }
 
 .api-endpoint {
     font-family: monospace;
+    font-size: 12px; /* Ukuran lebih kecil */
     color: #333;
     background-color: #f1f1f1;
     padding: 5px;
     border-radius: 4px;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .api-description button {
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
+    font-size: 12px;
+    margin-top: 8px;
 }
 
 .api-description button:hover {
@@ -206,7 +198,7 @@ h1 {
 
 footer {
     margin-top: 30px;
-    font-size: 14px;
+    font-size: 12px;
     color: #777;
     text-align: center;
 }
@@ -218,19 +210,19 @@ footer {
     }
 
     .api-category h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .api-title {
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .api-description p {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .api-description button {
-        font-size: 12px;
-        padding: 8px 16px;
+        font-size: 10px;
+        padding: 6px 12px;
     }
 }
