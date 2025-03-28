@@ -10,60 +10,74 @@ body {
     background: #0d1117;
     color: #e1e4e8;
     line-height: 1.6;
-    width: 100vw; /* Lebar penuh */
-    height: 100vh; /* Tinggi penuh */
-    overflow: hidden; /* Hilangkan scroll */
+    width: 100vw; /* Full Width */
+    height: 100vh; /* Full Height */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
 /* ======= Container Full Height & Width ======= */
 .container {
-    width: 100vw; /* Full dari kiri ke kanan */
-    height: 100%; /* Pastikan full height */
+    width: 100vw;
+    height: 100%;
     padding: 10px;
     background: #161b22;
     display: flex;
     flex-direction: column;
 }
 
-/* ======= API Category ======= */
+/* ======= API Category (Folder Style) ======= */
 .api-category {
-    margin-bottom: 8px;
-    padding: 0 5px;
-}
-
-.api-category h2 {
-    font-size: 12px;
+    width: 100%;
+    background: #1e252e;
     color: #00bfff;
-    margin-bottom: 4px;
-    border-bottom: 1px solid #00bfff;
-    padding-bottom: 2px;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
 }
 
-/* ======= API List Full Height ======= */
+.api-category:hover {
+    background: #27303f;
+}
+
+/* Icon Folder */
+.api-category::before {
+    content: "📁"; /* Icon Folder */
+    font-size: 16px;
+}
+
+/* List API di dalam kategori */
 .api-list {
-    display: flex;
+    display: none; /* Hidden by default */
     flex-direction: column;
     gap: 3px;
     width: 100%;
-    flex-grow: 1; /* Biarkan dia memenuhi sisa tinggi */
-    overflow-y: auto; /* Supaya bisa scroll kalau banyak */
+    padding-left: 20px; /* Supaya lebih rapi */
+    overflow-y: auto;
 }
 
+.api-category.open + .api-list {
+    display: flex; /* Tampilkan saat kategori dibuka */
+}
+
+/* ======= API Item (Tanpa Border) ======= */
 .api-item {
     background: #1e252e;
-    border: 1px solid #2c3e50;
     border-radius: 4px;
     padding: 8px;
-    width: 100%; /* Pastikan item penuh */
-    box-shadow: 0 2px 4px rgba(0, 255, 255, 0.15);
-    transition: transform 0.1s, box-shadow 0.1s;
+    width: 100%;
+    transition: transform 0.1s;
 }
 
 .api-item:hover {
     transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0, 255, 255, 0.3);
 }
 
 /* Header API */
@@ -74,6 +88,25 @@ body {
     gap: 5px;
     margin-bottom: 3px;
     cursor: pointer;
+}
+
+/* Tombol GET Keren */
+.api-method {
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: #fff;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.api-method:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 183, 255, 0.5);
 }
 
 /* Responsive Scroll */
