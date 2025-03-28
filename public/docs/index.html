@@ -9,8 +9,6 @@
     <meta property="og:image" content="https://files.catbox.moe/brfmrw.jpg">
     <meta property="og:url" content="https://acioooomd.biz.id">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="../styles.css">
-    <script defer src="../script.js"></script>
     <link rel="icon" href="https://files.catbox.moe/brfmrw.jpg" type="image/jpeg">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
@@ -21,8 +19,6 @@
             --border-glow: #0077b6;
             --text-color: #ffffff;
             --shadow-color: rgba(0, 0, 0, 0.6);
-            --button-bg: #0077b6;
-            --button-hover: #0094ff;
         }
 
         * {
@@ -42,6 +38,7 @@
             height: 100vh;
             padding: 20px;
             color: var(--text-color);
+            overflow: hidden;
             animation: fadeIn 1s ease-in-out;
         }
 
@@ -52,12 +49,13 @@
             box-shadow: 0 6px 20px var(--shadow-color);
             max-width: 450px;
             width: 90%;
+            position: relative;
             backdrop-filter: blur(10px);
             border: 1.5px solid rgba(255, 255, 255, 0.15);
             animation: slideIn 0.8s ease-in-out;
         }
 
-        .image-container img {
+        .profile-img {
             width: 90px;
             border-radius: 50%;
             margin-bottom: 12px;
@@ -65,7 +63,7 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        .image-container img:hover {
+        .profile-img:hover {
             transform: scale(1.05);
         }
 
@@ -102,26 +100,6 @@
             line-height: 1.5;
         }
 
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            background: var(--button-bg);
-            color: var(--text-color);
-            font-size: 14px;
-            font-weight: bold;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .btn:hover {
-            background: var(--button-hover);
-            transform: scale(1.03);
-        }
-
         footer {
             margin-top: 15px;
             font-size: 12px;
@@ -143,25 +121,15 @@
 <body>
 
     <div class="container">
-        <div class="image-container">
-            <img src="https://files.catbox.moe/brfmrw.jpg" alt="AciooBot Logo">
-        </div>
-
+        <img src="https://files.catbox.moe/brfmrw.jpg" alt="Logo Dcvx" class="profile-img">
         <h1 class="title" id="welcome-text">WELCOME IN DCVX!</h1>
         <p class="description">
-            Dcvx RestAPIs adalah API buatan Fahrizal Setiawan untuk berbagai kebutuhan digital seperti bot WhatsApp, komunikasi, dan sistem manajemen.  
-            Jika ingin menolong atau berdonasi, silakan kunjungi saluran kami!
+            Terima kasih telah menggunakan Dcvx Rest API! Kami menyediakan layanan API yang cepat dan gratis untuk semua orang.  
+            Jika ingin mendukung proyek ini, silakan lihat saluran donasi kami!
         </p>
 
-        <button class="btn" onclick="window.location.href='https://whatsapp.com/channel/0029VbA6ZQp72WTpwhiTlo3W'">
-            Follow Saluran
-        </button>
-        <button class="btn" onclick="window.location.href='/docs/'">
-            Dokumentasi
-        </button>
+        <footer>© 2025 API Dcvx – Fast & Reliable API Services.</footer>
     </div>
-
-    <footer>© 2025 Dcvx RestAPIs – Fast & Reliable API Services.</footer>
 
     <script>
         window.onload = function () {
