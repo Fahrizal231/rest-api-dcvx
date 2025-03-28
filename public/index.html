@@ -9,11 +9,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
         :root {
-            --primary-color: #fff;
-            --secondary-color: #f7f7f7;
-            --button-bg: #111;
-            --button-hover: #333;
-            --text-color: #000;
+            --primary-color: #ffffff;
+            --secondary-color: #f5f5f5;
+            --accent-color: #007bff;
+            --button-bg: #007bff;
+            --button-hover: #0056b3;
+            --text-color: #333;
+            --shadow-color: rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -25,7 +27,7 @@
         }
 
         body {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, #e3f2fd, #ffffff);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -33,37 +35,54 @@
             height: 100vh;
             padding: 20px;
             color: var(--text-color);
+            transition: background 0.3s ease-in-out;
         }
 
         .container {
             background: var(--secondary-color);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 380px;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px var(--shadow-color);
+            max-width: 400px;
             width: 90%;
-            transition: box-shadow 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
         }
 
         .container:hover {
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 0;
+            left: 0;
+            background: var(--accent-color);
+            transition: all 0.3s ease-in-out;
         }
 
         .image-container img {
-            width: 70px;
+            width: 80px;
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px var(--shadow-color);
             transition: transform 0.3s ease-in-out;
         }
 
         .image-container img:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         h1 {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             margin-bottom: 8px;
+            color: var(--accent-color);
         }
 
         .description {
@@ -71,33 +90,40 @@
             font-weight: 400;
             margin-bottom: 15px;
             padding: 0 10px;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 10px;
-            margin: 5px 0;
+            padding: 12px;
+            margin: 7px 0;
             background: var(--button-bg);
             color: var(--primary-color);
-            font-size: 14px;
+            font-size: 15px;
             font-weight: bold;
-            border-radius: 6px;
+            border-radius: 8px;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease-in-out;
+            text-decoration: none;
         }
 
         .btn:hover {
             background: var(--button-hover);
-            transform: scale(1.03);
+            transform: scale(1.05);
+        }
+
+        .btn i {
+            margin-right: 8px;
         }
 
         .footer {
-            margin-top: 12px;
+            margin-top: 15px;
             font-size: 12px;
-            opacity: 0.7;
+            opacity: 0.8;
         }
     </style>
 </head>
@@ -113,12 +139,12 @@
             Dcvx RestAPIs adalah API buatan Fahrizal Setiawan untuk berbagai kebutuhan digital seperti bot WhatsApp, komunikasi, dan sistem manajemen.
         </p>
 
-        <button class="btn" onclick="window.location.href='https://whatsapp.com/channel/0029VbA6ZQp72WTpwhiTlo3W'">
-            Follow Saluran
-        </button>
-        <button class="btn" onclick="window.location.href='/docs/'">
-            Dokumentasi
-        </button>
+        <a class="btn" href="https://whatsapp.com/channel/0029VbA6ZQp72WTpwhiTlo3W">
+            <i class="fab fa-whatsapp"></i> Follow Saluran
+        </a>
+        <a class="btn" href="/docs">
+            <i class="fas fa-book"></i> Dokumentasi
+        </a>
     </div>
 
     <p class="footer">© 2025 Dcvx RestAPIs</p>
