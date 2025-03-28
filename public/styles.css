@@ -1,3 +1,4 @@
+/* ======= Global Styles ======= */
 * {
     margin: 0;
     padding: 0;
@@ -6,143 +7,82 @@
 }
 
 body {
-    background: linear-gradient(120deg, #ffffff, #d6ecff, #ffffff);
-    background-size: 400% 400%; /* Perbesar ukuran gradasi */
-    color: #333;
+    background: #0d1117; /* Warna gelap */
+    color: #e1e4e8;
     line-height: 1.6;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    position: relative;
+    padding: 10px;
     min-height: 100vh;
-    animation: gradientBackground 10s ease infinite; /* Animasi gradasi */
-}
-
-@keyframes gradientBackground {
-    0% {
-        background-position: 0% 50%; /* Posisi awal gradasi */
-    }
-    50% {
-        background-position: 100% 50%; /* Posisi tengah gradasi */
-    }
-    100% {
-        background-position: 0% 50%; /* Kembali ke posisi awal */
-    }
-}
-
-.wave-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: -1; /* Pastikan wave di belakang konten */
-}
-
-.wave {
-    position: absolute;
-    width: 200%;
-    height: 100%;
-    background: rgba(220, 240, 255, 0.6);
-    opacity: 0.8;
-    transform: translateY(10px);
-    animation: waveMove 6s linear infinite alternate;
-}
-
-.wave:nth-child(2) {
-    background: rgba(200, 230, 255, 0.8);
-    height: 120%;
-    animation-duration: 8s;
-}
-
-.wave:nth-child(3) {
-    background: rgba(180, 220, 255, 0.9);
-    height: 140%;
-    animation-duration: 10s;
-}
-
-@keyframes waveMove {
-    0% { transform: translateX(-10%) translateY(10px); }
-    100% { transform: translateX(10%) translateY(-10px); }
 }
 
 .container {
-    max-width: 800px;
+    max-width: 100%; /* Full width */
     margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    background: #161b22;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #007bff;
-    text-align: center;
-}
-
-/* Gaya untuk Kategori */
+/* ======= API Category ======= */
 .api-category {
-    margin-bottom: 10px;
-    padding: 0 10px; /* Supaya tetap ada sedikit padding */
+    margin-bottom: 8px;
+    padding: 0 5px;
 }
 
 .api-category h2 {
-    font-size: 14px; /* Ukuran font lebih kecil */
+    font-size: 12px;
     color: #00bfff;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     border-bottom: 1px solid #00bfff;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
 }
 
+/* ======= API List ======= */
 .api-list {
     display: flex;
     flex-direction: column;
-    gap: 5px; /* Jarak antar item lebih kecil */
+    gap: 3px;
 }
 
 .api-item {
     background: #1e252e;
     border: 1px solid #2c3e50;
-    border-radius: 4px; /* Lebih kecil */
-    padding: 10px;
-    width: 100%; /* Full dari kiri ke kanan */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: transform 0.15s, box-shadow 0.15s;
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 255, 255, 0.15);
+    transition: transform 0.1s, box-shadow 0.1s;
 }
 
 .api-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 255, 255, 0.3);
 }
 
+/* Header API */
 .api-header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Supaya judul & status sejajar */
+    justify-content: space-between;
     gap: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     cursor: pointer;
 }
 
 .api-method {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: bold;
-    padding: 3px 6px;
+    padding: 2px 4px;
     border-radius: 3px;
     background-color: #00bfff;
     color: #fff;
-    text-align: center;
 }
 
 .api-status-badge {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: bold;
-    padding: 3px 6px;
+    padding: 2px 5px;
     border-radius: 10px;
-    text-transform: uppercase;
 }
 
 .api-status-badge.online {
@@ -155,20 +95,22 @@ h1 {
     color: #fff;
 }
 
+/* API Title */
 .api-title {
-    font-size: 12px; /* Ukuran lebih kecil */
+    font-size: 11px;
     font-weight: bold;
     color: #00bfff;
-    flex-grow: 1; /* Supaya memenuhi space */
+    flex-grow: 1;
 }
 
 .api-title:hover {
     text-decoration: underline;
 }
 
+/* Deskripsi API */
 .api-description {
-    margin-top: 5px;
-    padding: 6px;
+    margin-top: 3px;
+    padding: 5px;
     background-color: #2d333b;
     border-left: 3px solid #00bfff;
     border-radius: 3px;
@@ -176,61 +118,64 @@ h1 {
 }
 
 .api-description p {
-    margin: 0;
-    font-size: 11px;
+    font-size: 10px;
     color: #e1e4e8;
 }
 
+/* API Endpoint */
 .api-endpoint {
     font-family: monospace;
     color: #dcdfe1;
     background-color: #333a42;
-    padding: 4px;
+    padding: 3px;
     border-radius: 3px;
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
+/* Tombol Deskripsi */
 .api-description button {
-    padding: 5px 10px;
+    padding: 4px 8px;
     background-color: #00bfff;
     color: #fff;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 11px;
-    margin-top: 5px;
+    font-size: 10px;
+    margin-top: 3px;
 }
 
 .api-description button:hover {
     background-color: #007b8b;
 }
+
+/* Footer */
 footer {
-    margin-top: 30px;
-    font-size: 14px;
+    margin-top: 20px;
+    font-size: 10px;
     color: #777;
     text-align: center;
 }
 
-/* Responsive Design */
+/* ======= Responsive Mobile ======= */
 @media (max-width: 768px) {
     h1 {
-        font-size: 24px;
-    }
-
-    .api-category h2 {
         font-size: 20px;
     }
 
+    .api-category h2 {
+        font-size: 11px;
+    }
+
     .api-title {
-        font-size: 16px;
+        font-size: 10px;
     }
 
     .api-description p {
-        font-size: 12px;
+        font-size: 9px;
     }
 
     .api-description button {
-        font-size: 12px;
-        padding: 8px 16px;
+        font-size: 9px;
+        padding: 6px 12px;
     }
 }
