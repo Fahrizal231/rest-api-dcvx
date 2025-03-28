@@ -9,13 +9,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
         :root {
-            --primary-color: rgba(255, 255, 255, 0.2);
-            --secondary-color: rgba(255, 255, 255, 0.5);
-            --border-glow: #00e1ff;
-            --button-bg: #00e1ff;
-            --button-hover: #0099cc;
+            --primary-bg: #0b0f19;
+            --glass-bg: rgba(25, 29, 44, 0.8);
+            --border-glow: #0077b6;
+            --button-bg: linear-gradient(135deg, #0077b6, #00aaff);
+            --button-hover: linear-gradient(135deg, #005f8e, #008ecc);
             --text-color: #ffffff;
-            --shadow-color: rgba(0, 0, 0, 0.3);
+            --shadow-color: rgba(0, 0, 0, 0.6);
         }
 
         * {
@@ -27,7 +27,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #081c24, #001f3f);
+            background: var(--primary-bg);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -39,15 +39,15 @@
         }
 
         .container {
-            background: var(--primary-color);
+            background: var(--glass-bg);
             padding: 25px;
             border-radius: 14px;
             box-shadow: 0 6px 20px var(--shadow-color);
             max-width: 400px;
             width: 90%;
             position: relative;
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--secondary-color);
+            backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
             animation: fadeIn 1s ease-in-out;
         }
 
@@ -60,7 +60,7 @@
             left: 0;
             border-radius: 14px;
             background: linear-gradient(135deg, transparent, var(--border-glow));
-            opacity: 0.3;
+            opacity: 0.15;
             z-index: -1;
         }
 
@@ -68,20 +68,20 @@
             width: 90px;
             border-radius: 50%;
             margin-bottom: 12px;
-            box-shadow: 0 0 15px var(--border-glow);
+            box-shadow: 0 0 12px var(--border-glow);
             transition: transform 0.3s ease-in-out;
         }
 
         .image-container img:hover {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.05);
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
             margin-bottom: 8px;
             color: var(--border-glow);
-            text-shadow: 0 0 8px var(--border-glow);
+            text-shadow: 0 0 5px var(--border-glow);
         }
 
         .description {
@@ -90,7 +90,7 @@
             margin-bottom: 15px;
             padding: 0 10px;
             line-height: 1.5;
-            opacity: 0.9;
+            opacity: 0.85;
         }
 
         .btn {
@@ -108,14 +108,14 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            box-shadow: 0 0 8px var(--button-bg);
+            box-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
             transition: all 0.3s ease-in-out;
         }
 
         .btn:hover {
             background: var(--button-hover);
-            transform: scale(1.08);
-            box-shadow: 0 0 15px var(--button-hover);
+            transform: scale(1.05);
+            box-shadow: 0 0 18px rgba(0, 170, 255, 0.6);
         }
 
         .btn i {
@@ -126,7 +126,7 @@
         .footer {
             margin-top: 15px;
             font-size: 12px;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         /* Animasi Masuk */
