@@ -85,53 +85,55 @@ h1 {
 
 /* Gaya untuk Kategori */
 .api-category {
-    margin-bottom: 15px; /* Mengurangi jarak antar kategori */
+    margin-bottom: 10px;
+    padding: 0 10px; /* Supaya tetap ada sedikit padding */
 }
 
 .api-category h2 {
-    font-size: 16px; /* Ukuran font lebih kecil */
-    color: #00bfff; /* Warna neon biru */
-    margin-bottom: 8px;
+    font-size: 14px; /* Ukuran font lebih kecil */
+    color: #00bfff;
+    margin-bottom: 5px;
     border-bottom: 1px solid #00bfff;
-    padding-bottom: 4px;
+    padding-bottom: 3px;
 }
 
 .api-list {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Jarak antar item lebih kecil */
+    gap: 5px; /* Jarak antar item lebih kecil */
 }
 
 .api-item {
-    background: #1e252e; /* Warna lebih gelap */
-    border: 1px solid #2c3e50; /* Warna border lebih soft */
-    border-radius: 6px; /* Sudut lebih kecil */
-    padding: 12px; /* Padding lebih kecil */
+    background: #1e252e;
+    border: 1px solid #2c3e50;
+    border-radius: 4px; /* Lebih kecil */
+    padding: 10px;
+    width: 100%; /* Full dari kiri ke kanan */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .api-item:hover {
-    transform: translateY(-3px); /* Efek hover lebih smooth */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .api-header {
     display: flex;
     align-items: center;
-    gap: 6px; /* Jarak antar elemen lebih kecil */
-    margin-bottom: 6px;
+    justify-content: space-between; /* Supaya judul & status sejajar */
+    gap: 5px;
+    margin-bottom: 5px;
     cursor: pointer;
 }
 
 .api-method {
-    font-size: 10px; /* Ukuran font lebih kecil */
+    font-size: 10px;
     font-weight: bold;
     padding: 3px 6px;
     border-radius: 3px;
     background-color: #00bfff;
     color: #fff;
-    width: 50px;
     text-align: center;
 }
 
@@ -140,7 +142,6 @@ h1 {
     font-weight: bold;
     padding: 3px 6px;
     border-radius: 10px;
-    margin-left: 6px;
     text-transform: uppercase;
 }
 
@@ -155,9 +156,10 @@ h1 {
 }
 
 .api-title {
-    font-size: 14px; /* Ukuran font lebih kecil */
+    font-size: 12px; /* Ukuran lebih kecil */
     font-weight: bold;
     color: #00bfff;
+    flex-grow: 1; /* Supaya memenuhi space */
 }
 
 .api-title:hover {
@@ -165,17 +167,17 @@ h1 {
 }
 
 .api-description {
-    margin-top: 6px;
+    margin-top: 5px;
     padding: 6px;
     background-color: #2d333b;
     border-left: 3px solid #00bfff;
-    border-radius: 4px;
+    border-radius: 3px;
     display: none;
 }
 
 .api-description p {
     margin: 0;
-    font-size: 12px; /* Ukuran font lebih kecil */
+    font-size: 11px;
     color: #e1e4e8;
 }
 
@@ -185,24 +187,23 @@ h1 {
     background-color: #333a42;
     padding: 4px;
     border-radius: 3px;
-    margin-top: 6px;
+    margin-top: 5px;
 }
 
 .api-description button {
-    padding: 6px 12px;
+    padding: 5px 10px;
     background-color: #00bfff;
     color: #fff;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 12px; /* Ukuran font lebih kecil */
-    margin-top: 6px;
+    font-size: 11px;
+    margin-top: 5px;
 }
 
 .api-description button:hover {
     background-color: #007b8b;
 }
-
 footer {
     margin-top: 30px;
     font-size: 14px;
