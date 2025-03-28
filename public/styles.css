@@ -7,20 +7,24 @@
 }
 
 body {
-    background: #0d1117; /* Warna gelap */
+    background: #0d1117;
     color: #e1e4e8;
     line-height: 1.6;
-    padding: 10px;
-    min-height: 100vh;
+    width: 100vw; /* Lebar penuh */
+    height: 100vh; /* Tinggi penuh */
+    overflow: hidden; /* Hilangkan scroll */
+    display: flex;
+    flex-direction: column;
 }
 
+/* ======= Container Full Height & Width ======= */
 .container {
-    max-width: 100%; /* Full width */
-    margin: 0 auto;
+    width: 100vw; /* Full dari kiri ke kanan */
+    height: 100%; /* Pastikan full height */
     padding: 10px;
     background: #161b22;
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
 }
 
 /* ======= API Category ======= */
@@ -37,11 +41,14 @@ body {
     padding-bottom: 2px;
 }
 
-/* ======= API List ======= */
+/* ======= API List Full Height ======= */
 .api-list {
     display: flex;
     flex-direction: column;
     gap: 3px;
+    width: 100%;
+    flex-grow: 1; /* Biarkan dia memenuhi sisa tinggi */
+    overflow-y: auto; /* Supaya bisa scroll kalau banyak */
 }
 
 .api-item {
@@ -49,7 +56,7 @@ body {
     border: 1px solid #2c3e50;
     border-radius: 4px;
     padding: 8px;
-    width: 100%;
+    width: 100%; /* Pastikan item penuh */
     box-shadow: 0 2px 4px rgba(0, 255, 255, 0.15);
     transition: transform 0.1s, box-shadow 0.1s;
 }
@@ -69,113 +76,16 @@ body {
     cursor: pointer;
 }
 
-.api-method {
-    font-size: 9px;
-    font-weight: bold;
-    padding: 2px 4px;
-    border-radius: 3px;
-    background-color: #00bfff;
-    color: #fff;
+/* Responsive Scroll */
+.api-list::-webkit-scrollbar {
+    width: 5px;
 }
 
-.api-status-badge {
-    font-size: 9px;
-    font-weight: bold;
-    padding: 2px 5px;
+.api-list::-webkit-scrollbar-thumb {
+    background: #00bfff;
     border-radius: 10px;
 }
 
-.api-status-badge.online {
-    background-color: #28a745;
-    color: #fff;
-}
-
-.api-status-badge.offline {
-    background-color: #dc3545;
-    color: #fff;
-}
-
-/* API Title */
-.api-title {
-    font-size: 11px;
-    font-weight: bold;
-    color: #00bfff;
-    flex-grow: 1;
-}
-
-.api-title:hover {
-    text-decoration: underline;
-}
-
-/* Deskripsi API */
-.api-description {
-    margin-top: 3px;
-    padding: 5px;
-    background-color: #2d333b;
-    border-left: 3px solid #00bfff;
-    border-radius: 3px;
-    display: none;
-}
-
-.api-description p {
-    font-size: 10px;
-    color: #e1e4e8;
-}
-
-/* API Endpoint */
-.api-endpoint {
-    font-family: monospace;
-    color: #dcdfe1;
-    background-color: #333a42;
-    padding: 3px;
-    border-radius: 3px;
-    margin-top: 3px;
-}
-
-/* Tombol Deskripsi */
-.api-description button {
-    padding: 4px 8px;
-    background-color: #00bfff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 10px;
-    margin-top: 3px;
-}
-
-.api-description button:hover {
-    background-color: #007b8b;
-}
-
-/* Footer */
-footer {
-    margin-top: 20px;
-    font-size: 10px;
-    color: #777;
-    text-align: center;
-}
-
-/* ======= Responsive Mobile ======= */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 20px;
-    }
-
-    .api-category h2 {
-        font-size: 11px;
-    }
-
-    .api-title {
-        font-size: 10px;
-    }
-
-    .api-description p {
-        font-size: 9px;
-    }
-
-    .api-description button {
-        font-size: 9px;
-        padding: 6px 12px;
-    }
+.api-list::-webkit-scrollbar-track {
+    background: #161b22;
 }
