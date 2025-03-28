@@ -62,6 +62,7 @@
             margin-bottom: 12px;
             box-shadow: 0 0 12px var(--border-glow);
             transition: transform 0.3s ease-in-out;
+            cursor: pointer;
         }
 
         .profile-img:hover {
@@ -110,7 +111,8 @@
             text-align: left;
             color: #ddd;
             font-size: 14px;
-            overflow: auto;
+            max-height: 200px;
+            overflow-y: auto;
             box-shadow: 0 0 10px var(--border-glow);
             border: 1px solid var(--border-glow);
         }
@@ -130,6 +132,18 @@
         @keyframes slideIn {
             0% { opacity: 0; transform: scale(0.9); }
             100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Responsif */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                max-width: 95%;
+            }
+
+            .description {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -154,6 +168,11 @@
         window.onload = function () {
             document.getElementById("welcome-text").classList.add("show");
         };
+
+        // Redirect jika klik gambar profil
+        document.querySelector('.profile-img').addEventListener('click', function() {
+            window.location.href = "https://acioooomd.biz.id";
+        });
     </script>
 
 </body>
