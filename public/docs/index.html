@@ -45,38 +45,39 @@
 
         .container {
             background: var(--glass-bg);
-            padding: 30px;
-            border-radius: 14px;
-            box-shadow: 0 6px 20px var(--shadow-color);
-            max-width: 450px;
-            width: 90%;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px var(--shadow-color);
+            max-width: 500px;
+            width: 95%;
             position: relative;
-            backdrop-filter: blur(10px);
-            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             animation: slideIn 0.8s ease-in-out;
         }
 
         .profile-img {
-            width: 90px;
+            width: 100px;
             border-radius: 50%;
-            margin-bottom: 12px;
-            box-shadow: 0 0 12px var(--border-glow);
-            transition: transform 0.3s ease-in-out;
+            margin-bottom: 14px;
+            box-shadow: 0 0 15px var(--border-glow);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             cursor: pointer;
         }
 
         .profile-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--border-glow);
         }
 
         .title {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--border-glow);
+            text-shadow: 0 0 6px var(--border-glow);
             position: relative;
             display: inline-block;
-            text-shadow: 0 0 5px var(--border-glow);
         }
 
         .title::after {
@@ -85,7 +86,7 @@
             width: 0%;
             height: 3px;
             background: var(--border-glow);
-            margin-top: 5px;
+            margin-top: 6px;
             border-radius: 5px;
             transition: width 0.8s ease-in-out;
         }
@@ -95,32 +96,32 @@
         }
 
         .description {
-            font-size: 14px;
-            opacity: 0.85;
-            margin-bottom: 15px;
-            padding: 0 15px;
-            line-height: 1.5;
+            font-size: 15px;
+            opacity: 0.9;
+            margin-bottom: 18px;
+            padding: 0 20px;
+            line-height: 1.6;
         }
 
         #api-categories {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 20px;
             width: 100%;
             text-align: left;
             color: #ddd;
-            font-size: 14px;
-            max-height: 200px;
+            font-size: 15px;
+            max-height: 250px;
             overflow-y: auto;
-            box-shadow: 0 0 10px var(--border-glow);
-            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 12px var(--border-glow);
+            border: 1.5px solid var(--border-glow);
         }
 
         footer {
-            margin-top: 15px;
-            font-size: 12px;
-            opacity: 0.7;
+            margin-top: 18px;
+            font-size: 13px;
+            opacity: 0.75;
         }
 
         /* Animasi */
@@ -137,12 +138,25 @@
         /* Responsif */
         @media (max-width: 480px) {
             .container {
-                padding: 20px;
+                padding: 25px;
                 max-width: 95%;
             }
 
+            .profile-img {
+                width: 90px;
+            }
+
+            .title {
+                font-size: 22px;
+            }
+
             .description {
-                font-size: 13px;
+                font-size: 14px;
+            }
+
+            #api-categories {
+                font-size: 14px;
+                padding: 15px;
             }
         }
     </style>
