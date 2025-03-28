@@ -85,79 +85,79 @@ h1 {
 
 /* Gaya untuk Kategori */
 .api-category {
-    margin-bottom: 20px; /* Kurangi jarak antar kategori */
+    margin-bottom: 15px; /* Mengurangi jarak antar kategori */
 }
 
 .api-category h2 {
-    font-size: 20px; /* Mengurangi ukuran font untuk judul */
-    color: #00bfff; /* Warna biru terang untuk kesan neon */
-    margin-bottom: 10px;
-    border-bottom: 2px solid #00bfff;
-    padding-bottom: 5px;
+    font-size: 16px; /* Ukuran font lebih kecil */
+    color: #00bfff; /* Warna neon biru */
+    margin-bottom: 8px;
+    border-bottom: 1px solid #00bfff;
+    padding-bottom: 4px;
 }
 
 .api-list {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Mengurangi jarak antar item */
+    gap: 8px; /* Jarak antar item lebih kecil */
 }
 
 .api-item {
-    background: #21262d; /* Dark background */
-    border: 1px solid #444d56; /* Warna border lebih soft */
-    border-radius: 8px;
-    padding: 15px; /* Mengurangi padding */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Efek shadow yang lebih lembut */
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: #1e252e; /* Warna lebih gelap */
+    border: 1px solid #2c3e50; /* Warna border lebih soft */
+    border-radius: 6px; /* Sudut lebih kecil */
+    padding: 12px; /* Padding lebih kecil */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .api-item:hover {
-    transform: translateY(-4px); /* Efek hover lebih halus */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px); /* Efek hover lebih smooth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .api-header {
     display: flex;
     align-items: center;
-    gap: 8px; /* Mengurangi jarak antar elemen */
-    margin-bottom: 8px; /* Mengurangi margin bawah */
+    gap: 6px; /* Jarak antar elemen lebih kecil */
+    margin-bottom: 6px;
     cursor: pointer;
 }
 
 .api-method {
-    font-size: 12px; /* Mengurangi ukuran font */
+    font-size: 10px; /* Ukuran font lebih kecil */
     font-weight: bold;
-    padding: 4px 8px;
-    border-radius: 4px;
-    background-color: #00bfff; /* Warna biru terang */
+    padding: 3px 6px;
+    border-radius: 3px;
+    background-color: #00bfff;
     color: #fff;
-    width: 60px;
+    width: 50px;
     text-align: center;
 }
 
 .api-status-badge {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
-    padding: 4px 8px;
-    border-radius: 12px;
-    margin-left: 10px;
+    padding: 3px 6px;
+    border-radius: 10px;
+    margin-left: 6px;
     text-transform: uppercase;
 }
 
 .api-status-badge.online {
-    background-color: #28a745; /* Hijau untuk ONLINE */
+    background-color: #28a745;
     color: #fff;
 }
 
 .api-status-badge.offline {
-    background-color: #dc3545; /* Merah untuk OFFLINE */
+    background-color: #dc3545;
     color: #fff;
 }
 
 .api-title {
-    font-size: 16px; /* Mengurangi ukuran font */
+    font-size: 14px; /* Ukuran font lebih kecil */
     font-weight: bold;
-    color: #00bfff; /* Warna biru terang */
+    color: #00bfff;
 }
 
 .api-title:hover {
@@ -165,42 +165,42 @@ h1 {
 }
 
 .api-description {
-    margin-top: 8px; /* Mengurangi jarak atas */
-    padding: 8px; /* Mengurangi padding */
-    background-color: #2d333b; /* Background lebih gelap */
-    border-left: 4px solid #00bfff; /* Efek neon */
+    margin-top: 6px;
+    padding: 6px;
+    background-color: #2d333b;
+    border-left: 3px solid #00bfff;
     border-radius: 4px;
-    display: none; /* Deskripsi tetap disembunyikan */
+    display: none;
 }
 
 .api-description p {
     margin: 0;
-    font-size: 14px;
-    color: #e1e4e8; /* Warna teks lebih terang */
+    font-size: 12px; /* Ukuran font lebih kecil */
+    color: #e1e4e8;
 }
 
 .api-endpoint {
     font-family: monospace;
-    color: #dcdfe1; /* Warna teks lebih terang */
+    color: #dcdfe1;
     background-color: #333a42;
-    padding: 4px 8px;
-    border-radius: 4px;
-    margin-top: 8px;
+    padding: 4px;
+    border-radius: 3px;
+    margin-top: 6px;
 }
 
 .api-description button {
-    padding: 8px 16px;
-    background-color: #00bfff; /* Warna biru terang */
+    padding: 6px 12px;
+    background-color: #00bfff;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 3px;
     cursor: pointer;
-    font-size: 14px;
-    margin-top: 8px;
+    font-size: 12px; /* Ukuran font lebih kecil */
+    margin-top: 6px;
 }
 
 .api-description button:hover {
-    background-color: #007b8b; /* Warna biru gelap pada hover */
+    background-color: #007b8b;
 }
 
 footer {
