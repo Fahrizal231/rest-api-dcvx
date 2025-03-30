@@ -1,168 +1,117 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dcvx Rest | Free Rest</title>
+    <title>Dcvx Rest | Free API</title>
     <script src="https://kit.fontawesome.com/5367cb78eb.js" crossorigin="anonymous"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');:root {
+        --primary-bg: #ffffff;
+        --text-color: #333;
+        --accent-color: #007bff;
+        --btn-bg: #007bff;
+        --btn-hover: #0056b3;
+        --shadow: rgba(0, 0, 0, 0.1);
+    }
 
-        :root {
-            --primary-bg: #0b0f19;
-            --glass-bg: rgba(25, 29, 44, 0.8);
-            --border-glow: #0077b6;
-            --button-bg: linear-gradient(135deg, #0077b6, #00aaff);
-            --button-hover: linear-gradient(135deg, #005f8e, #008ecc);
-            --text-color: #ffffff;
-            --shadow-color: rgba(0, 0, 0, 0.6);
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-        }
+    body {
+        background: var(--primary-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        padding: 20px;
+        color: var(--text-color);
+    }
 
-        body {
-            background: var(--primary-bg);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            padding: 20px;
-            color: var(--text-color);
-            overflow: hidden;
-        }
+    .container {
+        background: #f9f9f9;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px var(--shadow);
+        max-width: 400px;
+        width: 90%;
+    }
 
-        .container {
-            background: var(--glass-bg);
-            padding: 25px;
-            border-radius: 14px;
-            box-shadow: 0 6px 20px var(--shadow-color);
-            max-width: 400px;
-            width: 90%;
-            position: relative;
-            backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(255, 255, 255, 0.2);
-            animation: fadeIn 1s ease-in-out;
-        }
+    .logo img {
+        width: 80px;
+        border-radius: 50%;
+        margin-bottom: 12px;
+    }
 
-        .container::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            border-radius: 14px;
-            background: linear-gradient(135deg, transparent, var(--border-glow));
-            opacity: 0.15;
-            z-index: -1;
-        }
+    h1 {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--accent-color);
+        margin-bottom: 10px;
+    }
 
-        .image-container img {
-            width: 90px;
-            border-radius: 50%;
-            margin-bottom: 12px;
-            box-shadow: 0 0 12px var(--border-glow);
-            transition: transform 0.3s ease-in-out;
-        }
+    .description {
+        font-size: 14px;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
 
-        .image-container img:hover {
-            transform: scale(1.05);
-        }
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        background: var(--btn-bg);
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 4px 8px var(--shadow);
+        transition: all 0.3s;
+    }
 
-        h1 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--border-glow);
-            text-shadow: 0 0 5px var(--border-glow);
-        }
+    .btn:hover {
+        background: var(--btn-hover);
+        transform: scale(1.05);
+    }
 
-        .description {
-            font-size: 14px;
-            font-weight: 400;
-            margin-bottom: 15px;
-            padding: 0 10px;
-            line-height: 1.5;
-            opacity: 0.85;
-        }
+    .btn i {
+        margin-right: 8px;
+        font-size: 18px;
+    }
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            background: var(--button-bg);
-            color: var(--text-color);
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
-            transition: all 0.3s ease-in-out;
-        }
+    .footer {
+        margin-top: 15px;
+        font-size: 12px;
+        color: #777;
+    }
+</style>
 
-        .btn:hover {
-            background: var(--button-hover);
-            transform: scale(1.05);
-            box-shadow: 0 0 18px rgba(0, 170, 255, 0.6);
-        }
-
-        .btn i {
-            margin-right: 8px;
-            font-size: 18px;
-        }
-
-        .footer {
-            margin-top: 15px;
-            font-size: 12px;
-            opacity: 0.7;
-        }
-
-        /* Animasi Masuk */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
 </head>
-<body>
-
-    <div class="container">
-        <div class="image-container">
-            <img src="https://files.catbox.moe/brfmrw.jpg" alt="AciooBot Logo">
-        </div>
-
-        <h1>WELCOME!</h1>
-        <p class="description">
-            Dcvx RestAPIs adalah API buatan Fahrizal Setiawan untuk berbagai kebutuhan digital seperti bot WhatsApp, komunikasi, dan sistem manajemen.
-        </p>
-
-        <a class="btn" href="https://whatsapp.com/channel/0029VbA6ZQp72WTpwhiTlo3W">
-            <i class="fab fa-whatsapp"></i> Follow Saluran
-        </a>
-        <a class="btn" href="/docs/">
-            <i class="fas fa-book"></i> Dokumentasi
-        </a>
+<body><div class="container">
+    <div class="logo">
+        <img src="https://files.catbox.moe/brfmrw.jpg" alt="API Logo">
     </div>
-
-    <p class="footer">© 2025 Dcvx RestAPIs</p>
+    <h1>WELCOME!</h1>
+    <p class="description">Dcvx RestAPIs adalah layanan API gratis dan cepat untuk kebutuhan digital Anda.</p>
+    <a class="btn" href="https://whatsapp.com/channel/0029VbA6ZQp72WTpwhiTlo3W">
+        <i class="fab fa-whatsapp"></i> Follow Saluran
+    </a>
+    <a class="btn" href="/docs">
+        <i class="fas fa-book"></i> Dokumentasi
+    </a>
+</div>
+<p class="footer">© 2025 Dcvx RestAPIs</p>
 
 </body>
 </html>
