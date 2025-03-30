@@ -143,7 +143,7 @@ const apiData = {
         },
        {
             method: "GET",
-            title: "Gempa Cek!",
+            title: "Cek Gempa",
             status: "online",
             description: "API untuk melihat kabar terbaru gempa di Indonesia!",
             endpoint: "/api/gempa"
