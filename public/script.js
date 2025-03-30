@@ -140,6 +140,13 @@ const apiData = {
             status: "online",
             description: "API untuk screenshot website dengan mudah.",
             endpoint: "/api/ssweb?url="
+        },
+       {
+            method: "GET",
+            title: "Gempa Cek!",
+            status: "online",
+            description: "API untuk melihat kabar terbaru gempa di Indonesia!",
+            endpoint: "/api/gempa"
         }
     ],
     "Fun": [
