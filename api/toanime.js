@@ -15,27 +15,14 @@ router.get("/", async (req, res) => {
 
   try {
     const response = await axios.get("https://api.suraweb.online/ai/toanime", {
-      params: { url, prompt }
+      params: { url, prompt },
+      responseType: "arraybuffer" // Mengambil respons dalam bentuk gambar
     });
 
-    const data = response.data;
-    if (!data || data.code !== 200 || !data.result) {
-      return res.status(404).json({ 
-        status: 404, 
-        creator: "Fahrizal", 
-        message: "Tidak ada hasil dari toAnime." 
-      });
-    }
-
-    res.json({
-      status: 200,
-      creator: "Fahrizal",
-      result: {
-        image: data.result
-      }
-    });
+    res.setHeader("Content-Type", "image/jpeg"); // Set header agar browser menampilkan gambar
+    res.send(response.data); // Kirim gambar langsung ke pengguna
   } catch (err) {
-    console.error("Error saat memproses gambar:", err.response?.data || err.message);
+    console.error("Error dari API:", err.response?.data || err.message);
     res.status(500).json({ 
       status: 500, 
       creator: "Fahrizal", 
