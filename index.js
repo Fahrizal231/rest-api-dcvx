@@ -62,7 +62,7 @@ const routes = [
     "llama-3.3-70b-versatile", "txt2img", "ssweb", "khodam", 
     "tahukahkamu", "brat", "bratanime", "bratvid", "deepseek", 
     "alicia", "playstore", "quotes", "webtoon", "turbo", 
-    "jadwalsholat","ytmp3","gempa"
+    "jadwalsholat","ytmp3","gempa","toanime"
 ];
 
 // Cek apakah file ada sebelum memuatnya
