@@ -35,10 +35,11 @@ router.get("/", async (req, res) => {
       }
     });
   } catch (err) {
+    console.error("Error saat memproses gambar:", err.response?.data || err.message);
     res.status(500).json({ 
       status: 500, 
       creator: "Fahrizal", 
-      message: "Terjadi kesalahan saat memproses gambar." 
+      message: "Terjadi kesalahan saat memproses gambar."
     });
   }
 });
