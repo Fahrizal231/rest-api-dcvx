@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
     res.status(500).json({ 
       status: 500, 
       creator: "Fahrizal", 
-      message: "Terjadi kesalahan saat memproses gambar."
+      message: "[ x ] error api! report to owner!"
     });
   }
 });
