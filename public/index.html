@@ -9,9 +9,8 @@
         --primary-bg: #ffffff;
         --text-color: #333;
         --accent-color: #007bff;
-        --btn-bg: #007bff;
-        --btn-hover: #0056b3;
-        --shadow: rgba(0, 0, 0, 0.1);
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --border-radius: 12px;
     }
 
     * {
@@ -19,98 +18,108 @@
         padding: 0;
         box-sizing: border-box;
         font-family: 'Poppins', sans-serif;
-        text-align: center;
     }
 
     body {
         background: var(--primary-bg);
+        color: var(--text-color);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 100vh;
         padding: 20px;
-        color: var(--text-color);
     }
 
     .container {
-        background: #f9f9f9;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px var(--shadow);
-        max-width: 400px;
+        background: #fff;
+        padding: 30px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 6px 20px var(--shadow-color);
+        max-width: 450px;
         width: 90%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
     }
 
-    .logo img {
+    .image-container img {
         width: 80px;
         border-radius: 50%;
-        margin-bottom: 12px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
     }
 
     h1 {
-        font-size: 22px;
-        font-weight: 600;
-        color: var(--accent-color);
+        font-size: 24px;
+        font-weight: bold;
         margin-bottom: 10px;
+        color: var(--accent-color);
     }
 
     .description {
         font-size: 14px;
-        margin-bottom: 15px;
-        line-height: 1.5;
+        opacity: 0.8;
+        margin-bottom: 20px;
+        line-height: 1.6;
     }
 
     .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
+        display: block;
         padding: 12px;
-        margin: 10px 0;
-        background: var(--btn-bg);
+        background: var(--accent-color);
         color: #fff;
         font-size: 15px;
         font-weight: bold;
         border-radius: 8px;
-        border: none;
-        cursor: pointer;
         text-decoration: none;
-        box-shadow: 0 4px 8px var(--shadow);
-        transition: all 0.3s;
+        box-shadow: 0 3px 10px rgba(0, 123, 255, 0.4);
+        transition: all 0.3s ease-in-out;
+        margin-top: 10px;
     }
 
     .btn:hover {
-        background: var(--btn-hover);
-        transform: scale(1.05);
-    }
-
-    .btn i {
-        margin-right: 8px;
-        font-size: 18px;
+        background: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.5);
     }
 
     .footer {
         margin-top: 15px;
         font-size: 12px;
-        color: #777;
+        opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 </style>
 
 </head>
 <body><div class="container">
-    <div class="logo">
-        <img src="https://files.catbox.moe/brfmrw.jpg" alt="API Logo">
+    <div class="image-container">
+        <img src="https://files.catbox.moe/brfmrw.jpg" alt="Dcvx Logo">
     </div>
-    <h1>WELCOME!</h1>
-    <p class="description">Dcvx RestAPIs adalah layanan API gratis dan cepat untuk kebutuhan digital Anda.</p>
+
+    <h1>WELCOME TO DCVX API</h1>
+    <p class="description">
+        Dcvx RestAPI adalah layanan API gratis dan cepat untuk berbagai kebutuhan digital.
+    </p>
+
     <a class="btn" href="https://whatsapp.com/channel/0029VbA6ZQp72WTpwhiTlo3W">
-        <i class="fab fa-whatsapp"></i> Follow Saluran
+        <i class="fab fa-whatsapp"></i> Join WhatsApp Channel
     </a>
-    <a class="btn" href="/docs">
-        <i class="fas fa-book"></i> Dokumentasi
+    <a class="btn" href="/docs/">
+        <i class="fas fa-book"></i> View Documentation
     </a>
 </div>
+
 <p class="footer">© 2025 Dcvx RestAPIs</p>
 
 </body>
