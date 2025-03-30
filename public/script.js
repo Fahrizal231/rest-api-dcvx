@@ -53,6 +53,13 @@ const apiData = {
         },
         {
             method: "GET",
+            title: "Pinterest Search",
+            status: "online",
+            description: "API untuk melihat foto di pinterest!",
+            endpoint: "/api/pinterest?q="
+        },
+        {
+            method: "GET",
             title: "Search Groups",
             status: "online",
             description: "API untuk mencari grup WhatsApp berdasarkan kata kunci.",
