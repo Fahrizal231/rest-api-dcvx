@@ -10,7 +10,7 @@ const apiData = {
         {
             method: "GET",
             title: "YTMP4 Downloader",
-            status: "online but",
+            status: "slight error",
             description: "API untuk mendownload video MP4 dari YouTube.",
             endpoint: "/api/ytmp4?url="
         },
