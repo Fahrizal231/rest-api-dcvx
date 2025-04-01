@@ -94,6 +94,14 @@ const apiData = {
             endpoint: "/api/webtoon?query="
         }
     ],
+    "Anime & Wota": [
+        {
+            method: "GET",
+            title: "Quotes Anime",
+            status: "online",
+            description: "Dapatkan Random Quotes Anime Beserta Asal Anime & Charnya",
+            endpoint: "/api/quotesanime"
+        }
     "Islamic": [
         {
             method: "GET",
