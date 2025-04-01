@@ -102,6 +102,7 @@ const apiData = {
             description: "Dapatkan Random Quotes Anime Beserta Asal Anime & Charnya",
             endpoint: "/api/quotesanime"
         }
+                ],
     "Islamic": [
         {
             method: "GET",
